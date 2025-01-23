@@ -4,6 +4,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     // Player body is a child of this object that has three children: Head, Body, and Legs
+    
     [SerializeField] SpriteRenderer head;
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer legs;
@@ -67,6 +68,13 @@ public class PlayerController : MonoBehaviour
         }
         onHit.Invoke();
         cameraShake.StartShake();
+
+    }
+    public void SetParts(Sprite head,Sprite body,Sprite legs)
+    {
+        this.head.sprite = head;
+        this.body.sprite = body;
+        this.legs.sprite = legs;
 
     }
 }
