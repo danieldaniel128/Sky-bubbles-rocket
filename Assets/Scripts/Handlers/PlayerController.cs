@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer legs;
 
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] FuelScript fuel;
+    public FuelScript fuel;
     [SerializeField] float HorizontalSpeed = 5f;
     [SerializeField] float VerticalSpeed = 5f;
     [SerializeField] float decelerationFactor = 0.95f; // How quickly the movement slows down
@@ -44,9 +44,7 @@ public class PlayerController : MonoBehaviour
         // Apply velocity to position
         transform.position += currentVelocity * Time.deltaTime;
     }
-    private void FixedUpdate()
-    {
-    }
+    
 
     public void ReFuel(float amount)
     {

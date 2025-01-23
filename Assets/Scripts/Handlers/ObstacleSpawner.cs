@@ -29,7 +29,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (elapsedTime >= 10f)
         {
             elapsedTime = 0f; // Reset timer
-            spawnInterval *= 0.8f; // Increase spawn rate by reducing interval by 20%
+            spawnInterval *= 0.9f; // Increase spawn rate by reducing interval by 10%
 
             // Update the spawn rate with the new interval
             CancelInvoke(nameof(SpawnObstacle));
