@@ -5,10 +5,10 @@ public class BubbleSpawner : MonoBehaviour
     public GameObject bubblePrefab; // Assign the bubble prefab
     public float spawnInterval = 1f; // Time between spawns
     public float spawnOffset = 2f; // How far above the camera to spawn bubbles
-    public float bubbleDownForce = -2f; // Downward force applied to bubbles
-    [SerializeField] float minX;
-    [SerializeField] float maxX;
-    public float spawnXBuffer = 1f; // Extra horizontal buffer for spawning bubbles
+    [SerializeField] float minXBuffer = 1f; // Minimum buffer for X spawning
+    [SerializeField] float maxXBuffer = 1f; // Maximum buffer for X spawning
+    [SerializeField] float minYBuffer = 2f; // Minimum buffer for Y spawning
+    [SerializeField] float maxYBuffer = 4f; // Maximum buffer for Y spawning
 
     private Camera mainCamera;
 
@@ -26,23 +26,22 @@ public class BubbleSpawner : MonoBehaviour
         // Calculate camera bounds
         float cameraHeight = 2f * mainCamera.orthographicSize;
         float cameraWidth = cameraHeight * mainCamera.aspect;
-        float randomxBuffer = Random.Range(minX, maxX);
-        // Randomize the X position within the camera's horizontal bounds plus buffer
-        float randomX = Random.Range(mainCamera.transform.position.x - cameraWidth / 2 - randomxBuffer,
-                                     mainCamera.transform.position.x + cameraWidth / 2 + randomxBuffer);
+
+        // Randomize the X and Y buffer values
+        float randomXBuffer = Random.Range(minXBuffer, maxXBuffer);
+        float randomYBuffer = Random.Range(minYBuffer, maxYBuffer);
+
+        // Clamp the X position within the camera's horizontal bounds
+        float spawnX = Random.Range(
+            mainCamera.transform.position.x - cameraWidth / 2 + randomXBuffer,
+            mainCamera.transform.position.x + cameraWidth / 2 - randomXBuffer
+        );
 
         // Spawn slightly above the camera's view
-        float spawnY = mainCamera.transform.position.y + (cameraHeight / 2) + spawnOffset;
+        float spawnY = mainCamera.transform.position.y + (cameraHeight / 2) + randomYBuffer;
 
         // Instantiate the bubble
-        Vector3 spawnPosition = new Vector3(randomX, spawnY, 0f);
+        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
         GameObject bubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
-
-        // Apply downward force to the bubble
-        Rigidbody2D rb = bubble.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.linearVelocity = new Vector2(0f, bubbleDownForce);
-        }
     }
 }

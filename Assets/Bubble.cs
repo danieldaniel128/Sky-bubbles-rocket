@@ -4,17 +4,20 @@ public class Bubble : MonoBehaviour
 {
     [SerializeField]Rigidbody2D rb;
     [SerializeField]float downwardForce = 1f;
+    [SerializeField] int minSpeed;
+    [SerializeField] int maxSpeed; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        downwardForce = Random.Range(minSpeed, maxSpeed+1);
+        //downwardForce *= 20;
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        Vector2 movement = new Vector2(0, -downwardForce * Time.deltaTime);
-        rb.linearVelocity = movement;
+        Vector3 movement = new Vector2(0, -downwardForce * Time.deltaTime);
+        transform.position += movement;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

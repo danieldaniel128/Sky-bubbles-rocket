@@ -2,26 +2,52 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Player body Is a child of this object that has three children: Head, Body, and Legs
+    // Player body is a child of this object that has three children: Head, Body, and Legs
     [SerializeField] SpriteRenderer head;
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer legs;
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] FuelScript fuel;
-    [SerializeField]float speed = 5f;
+    [SerializeField] float HorizontalSpeed = 5f;
+    [SerializeField] float VerticalSpeed = 5f;
+    [SerializeField] float decelerationFactor = 0.95f; // How quickly the movement slows down
+    private Vector3 currentVelocity = Vector3.zero; // Tracks current velocity
+    private Vector3 movementInput = Vector3.zero; // Tracks movement input
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 movement = new Vector2(Input.GetAxis("Horizontal")*speed*Time.deltaTime,0);
-        rb.linearVelocity = movement;
+        // Get movement input
+        movementInput = new Vector3(
+            Input.GetAxisRaw("Horizontal") * HorizontalSpeed,
+            Input.GetAxisRaw("Vertical") * VerticalSpeed,
+            0
+        );
+
+        if (movementInput.magnitude > 0)
+        {
+            // Directly set velocity to match input direction
+            currentVelocity = movementInput;
+        }
+        else
+        {
+            // Apply deceleration when no input is given
+            currentVelocity *= decelerationFactor;
+        }
+
+        // Apply velocity to position
+        transform.position += currentVelocity * Time.deltaTime;
     }
+    private void FixedUpdate()
+    {
+    }
+
     public void ReFuel(float amount)
     {
         if (fuel != null)
@@ -29,5 +55,4 @@ public class PlayerController : MonoBehaviour
             fuel.Refuel(amount);
         }
     }
-
 }
