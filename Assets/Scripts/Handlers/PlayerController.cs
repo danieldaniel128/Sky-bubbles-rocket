@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,10 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float decelerationFactor = 0.95f; // How quickly the movement slows down
     private Vector3 currentVelocity = Vector3.zero; // Tracks current velocity
     private Vector3 movementInput = Vector3.zero; // Tracks movement input
+    public int lives;
+    public event Action onHit;
+    [SerializeField] CameraShake cameraShake;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        lives = 3;
     }
 
     // Update is called once per frame
@@ -52,5 +57,16 @@ public class PlayerController : MonoBehaviour
         {
             fuel.Refuel(amount);
         }
+    }
+    public void LoseLives()
+    {
+        lives--;
+        if (lives <= 0)
+        {
+            //gameOver
+        }
+        onHit.Invoke();
+        cameraShake.StartShake();
+
     }
 }

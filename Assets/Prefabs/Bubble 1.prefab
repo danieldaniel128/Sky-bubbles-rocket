@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9046023308973352284}
   - component: {fileID: 4139331412511552922}
   - component: {fileID: 2347723762463466329}
-  - component: {fileID: -3751157405882215405}
+  - component: {fileID: 8996670500827937651}
   m_Layer: 0
   m_Name: Bubble 1
   m_TagString: Bubble
@@ -153,7 +153,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3751157405882215405
+--- !u!114 &8996670500827937651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,10 +162,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4322807235276301267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad8cf6b19372f7c4784db3917032506a, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b6c3240f5c37640ace6ce53bca57ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2347723762463466329}
   downwardForce: 1
   minSpeed: 2
-  maxSpeed: 8
+  maxSpeed: 5
