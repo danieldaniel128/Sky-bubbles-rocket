@@ -21,13 +21,13 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         OnScrapCollected?.Invoke(this);
-        Debug.Log($"<color=green>scrap {gameObject.name} has been clicked</color>");
     }
 
     private void SetScrapData(ScrapDataSO scrapDataSO)
     {
         //set scrap data.
         ScrupDataSO = scrapDataSO;
+        ScrapType = scrapDataSO.ScrapType; 
         //set scrap sprite.
         SetScrapSprite(scrapDataSO.ScrapIcon);
         //set scrap gameobject name in hierarchy.
@@ -36,6 +36,14 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler
     private void SetScrapSprite(Sprite scrapSprite)
     {
         _scrapImage.sprite = scrapSprite;
+        _scrapImage.SetNativeSize();
     }
-    
+    private void OnApplicationQuit()
+    {
+        OnScrapCollected = null;
+    }
+    private void OnDestroy()
+    {
+        OnScrapCollected = null;
+    }
 }
