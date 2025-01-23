@@ -5,14 +5,28 @@ public class Bubble : MonoBehaviour
     [SerializeField]Rigidbody2D rb;
     [SerializeField]float downwardForce = 1f;
     [SerializeField] int minSpeed;
-    [SerializeField] int maxSpeed; 
+    [SerializeField] int maxSpeed;
+    private Camera mainCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         downwardForce = Random.Range(minSpeed, maxSpeed+1);
-        //downwardForce *= 20;
-    }
+        mainCamera = Camera.main; // Reference to the main camera
+                                  //downwardForce *= 20;
 
+    }
+    private void Update()
+    {
+        // Calculate camera bounds
+        float cameraHeight = 2f * mainCamera.orthographicSize;
+        float minY = mainCamera.transform.position.y - cameraHeight / 2;
+
+        // Destroy the bubble if it moves below the bottom of the camera
+        if (transform.position.y < minY)
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -29,6 +43,7 @@ public class Bubble : MonoBehaviour
                 {
                    player.ReFuel(10);
                     Destroy(gameObject);
+
                 }
             }
         }
