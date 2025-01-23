@@ -17,16 +17,26 @@ public class ScrapsCollector : MonoBehaviour
         switch (collectedScrap.ScrapType)
         {
             case RocketScrapType.Body:
-                AddToCollected(ref _collectedBody, collectedScrap);
+                //check if the collected is already collected.
+                if (_collectedBody != collectedScrap)
+                    AddToCollected(ref _collectedBody, collectedScrap);
+                else//already got collected, release it.
+                    ReleaseFromCollected(collectedScrap, ref _collectedBody);
                 break;
             case RocketScrapType.Thrusters:
-                AddToCollected(ref _collectedThrusters, collectedScrap);
+                if (_collectedThrusters != collectedScrap)
+                    AddToCollected(ref _collectedThrusters, collectedScrap);
+                else
+                    ReleaseFromCollected(collectedScrap, ref _collectedThrusters);
                 break;
             case RocketScrapType.Head:
-                AddToCollected(ref _collectedHead, collectedScrap);
+                if (_collectedHead != collectedScrap)
+                    AddToCollected(ref _collectedHead, collectedScrap);
+                else
+                    ReleaseFromCollected(collectedScrap, ref _collectedHead);
                 break;
             default:
-                Debug.Log("something went wrong");
+                Debug.Log("<color=red>something went wrong</color>");
                 break;
         }
     }
@@ -38,13 +48,36 @@ public class ScrapsCollector : MonoBehaviour
         UpdateRocketBodyParts();
         Debug.Log($"<color=green>Collected Scrap {collectedScrap.name}</color>");
     }
+    private void ReleaseFromCollected(ScrapHandler releasedCollectedScrap, ref ScrapHandler collectedScrap)
+    {
+        releasedCollectedScrap.transform.position = releasedCollectedScrap.ScrapCreatedPosParent.position;
+        releasedCollectedScrap.transform.SetParent(releasedCollectedScrap.ScrapCreatedPosParent);
+        collectedScrap = null;
+        Debug.Log($"<color=red>Released Scrap {releasedCollectedScrap.name}</color>");
+        Debug.Log($"<color=red>Released Scrap new parent {releasedCollectedScrap.ScrapCreatedPosParent.name}</color>");
+    }
     private void UpdateRocketBodyParts()
     {
-        if(_collectedHead != null)
+        if (_collectedHead != null)
+        {
+            //set to part position
             _collectedHead.transform.position = _headPos.position;
+            //set new parent.
+            _collectedHead.transform.SetParent(_headPos);
+        }
         if (_collectedThrusters != null)
+        {
+            //set to part position
             _collectedThrusters.transform.position = _thrustersPos.position;
+            //set new parent.
+            _collectedThrusters.transform.SetParent(_thrustersPos);
+        }
         if (_collectedBody != null)
+        { 
+            //set to part position
             _collectedBody.transform.position = _bodyPos.position;
+            //set new parent.
+            _collectedBody.transform.SetParent(_bodyPos);
+        }
     }
 }

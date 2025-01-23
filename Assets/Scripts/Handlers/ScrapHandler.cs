@@ -8,19 +8,20 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler
     [SerializeField] Image _scrapImage;
     [SerializeField] ScrapDataSO _crupDataSO;
 
-    public Transform _scrapParent;
+    public Transform ScrapCreatedPosParent { get; set; }
     public ScrapDataSO ScrupDataSO { get { return _crupDataSO; } private set { _crupDataSO = value; } }
     public RocketScrapType ScrapType { get; private set; }
     //events
     public Action<ScrapHandler> OnScrapCollected;
     public void SetScrap(ScrapDataSO scrapDataSO,Transform scrapParent)
     {
-        _scrapParent = scrapParent;
+        ScrapCreatedPosParent = scrapParent;
         SetScrapData(scrapDataSO);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
         OnScrapCollected?.Invoke(this);
+        Debug.Log($"<color=blue>clicked {gameObject.name}</color>");
     }
 
     private void SetScrapData(ScrapDataSO scrapDataSO)
