@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShowerCapRed
   m_EditorClassIdentifier: 
   ScrapName: ShowerCapRed
-  ScrapIcon: {fileID: 21300000, guid: 717d04f3a6088fc4eb6af317eeb21946, type: 3}
+  ScrapIcon: {fileID: -2553745286384078455, guid: 717d04f3a6088fc4eb6af317eeb21946, type: 3}
   ScrapType: 2
   Rarity: 1
   Lives: 3

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Shampoo1
   m_EditorClassIdentifier: 
   ScrapName: Shampo
-  ScrapIcon: {fileID: 21300000, guid: b61caf8aa1718694b985261205d4b9cb, type: 3}
+  ScrapIcon: {fileID: -881306517219669549, guid: b61caf8aa1718694b985261205d4b9cb, type: 3}
   ScrapType: 1
   Rarity: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plunge Red
   m_EditorClassIdentifier: 
   ScrapName: Plunge Red
-  ScrapIcon: {fileID: 21300000, guid: 5e45f51fc47d3544c8bcf0ede19abd58, type: 3}
+  ScrapIcon: {fileID: -1572099719677741934, guid: 5e45f51fc47d3544c8bcf0ede19abd58, type: 3}
   ScrapType: 0
   Rarity: 1
   Fuel: 100

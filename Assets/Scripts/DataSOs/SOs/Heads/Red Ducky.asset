@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Red Ducky
   m_EditorClassIdentifier: 
   ScrapName: RedDucky
-  ScrapIcon: {fileID: 21300000, guid: 3a1966b0c0fdfea46bfaa4a989713e2b, type: 3}
+  ScrapIcon: {fileID: 8068531906196354090, guid: 3a1966b0c0fdfea46bfaa4a989713e2b, type: 3}
   ScrapType: 2
   Rarity: 2
   Lives: 4

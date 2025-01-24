@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShowerCap
   m_EditorClassIdentifier: 
   ScrapName: ShowerCap
-  ScrapIcon: {fileID: 21300000, guid: 58ad4cc1452afc546b42843883e2f2ef, type: 3}
+  ScrapIcon: {fileID: -8703186793369667670, guid: 58ad4cc1452afc546b42843883e2f2ef, type: 3}
   ScrapType: 2
   Rarity: 1
   Lives: 3

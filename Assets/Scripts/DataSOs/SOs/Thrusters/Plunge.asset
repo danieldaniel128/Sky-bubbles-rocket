@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plunge
   m_EditorClassIdentifier: 
   ScrapName: Plunge
-  ScrapIcon: {fileID: 21300000, guid: 561f583dffed5d146ad4ff9f2e979f91, type: 3}
+  ScrapIcon: {fileID: 3938961246969335683, guid: 561f583dffed5d146ad4ff9f2e979f91, type: 3}
   ScrapType: 0
   Rarity: 1
   Fuel: 100

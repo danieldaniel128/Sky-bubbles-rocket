@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plug
   m_EditorClassIdentifier: 
   ScrapName: plug
-  ScrapIcon: {fileID: 21300000, guid: 684a0918c633cd74d893d8e9432472b5, type: 3}
+  ScrapIcon: {fileID: -6920409109680071388, guid: 684a0918c633cd74d893d8e9432472b5, type: 3}
   ScrapType: 0
   Rarity: 0
   Fuel: 75

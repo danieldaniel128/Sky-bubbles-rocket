@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sponge Green
   m_EditorClassIdentifier: 
   ScrapName: Sponge Green
-  ScrapIcon: {fileID: 21300000, guid: b34fef1a5272e804084edf9f2b8bcb22, type: 3}
+  ScrapIcon: {fileID: -3266060934685520890, guid: b34fef1a5272e804084edf9f2b8bcb22, type: 3}
   ScrapType: 0
   Rarity: 2
   Fuel: 125

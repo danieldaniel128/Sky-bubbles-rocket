@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Toys1
   m_EditorClassIdentifier: 
   ScrapName: Toys
-  ScrapIcon: {fileID: 21300000, guid: 0386ac7f81ae3a44aa075ad4f41093d8, type: 3}
+  ScrapIcon: {fileID: -1632936629042874163, guid: 0386ac7f81ae3a44aa075ad4f41093d8, type: 3}
   ScrapType: 1
   Rarity: 2
