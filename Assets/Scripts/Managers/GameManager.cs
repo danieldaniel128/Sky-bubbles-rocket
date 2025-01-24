@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         }
         
         activeEntity.Clear();
+
         ScrapsSpawner.InitScrapsCoro();
     }
     public void Launch()
@@ -44,5 +45,9 @@ public class GameManager : MonoBehaviour
     public void AddCoins(int amount)
     {
         CoinManager.AddCoins(amount);
+    }
+    public void RemoveCoins(int amount)
+    {
+        CoinManager.RemoveCoins(amount);
     }
 }

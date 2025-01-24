@@ -14,7 +14,7 @@ public class CoinSpawner : MonoBehaviour
 
     private Camera mainCamera;
     private float spawnTimer = 0f; // Timer to track spawn intervals
-    private float spawnRateIncreaseTimer = 0f; // Timer to track spawn rate increase intervals
+   
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class CoinSpawner : MonoBehaviour
     {
         // Update timers
         spawnTimer += Time.deltaTime;
-        spawnRateIncreaseTimer += Time.deltaTime;
+      
 
         // Check if it's time to spawn a coin
         if (spawnTimer >= spawnInterval)
@@ -36,12 +36,12 @@ public class CoinSpawner : MonoBehaviour
         }
 
         // Increase spawn rate every 20 seconds
-        if (spawnRateIncreaseTimer >= 20f)
-        {
-            spawnRateIncreaseTimer = 0f; // Reset rate increase timer
-            spawnInterval *= 0.95f; // Reduce interval by 5% to increase spawn rate
-            spawnInterval = Mathf.Max(0.1f, spawnInterval); // Prevent spawnInterval from getting too small
-        }
+        
+    }
+  public void IncreaseSpawnRate()
+    {
+        spawnInterval *= 0.95f; // Reduce interval by 5% to increase spawn rate
+        spawnInterval = Mathf.Max(0.1f, spawnInterval); // Prevent spawnInterval from getting too small
     }
 
     void SpawnCoins()

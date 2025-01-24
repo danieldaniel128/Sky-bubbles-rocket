@@ -21,6 +21,11 @@ public class FuelScript : MonoBehaviour
             fuel = MaxFuel;
         }
         fuel -= fuelConsumption * Time.deltaTime;
+        if (fuel <= 0)
+        {
+            print("Out of fuel");
+            GameManager.instance.LoseGame();
+        }
     }
     
     public void Refuel(float amount)

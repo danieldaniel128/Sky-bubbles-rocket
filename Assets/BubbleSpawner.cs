@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class BubbleSpawner : MonoBehaviour
 {
     public GameObject bubblePrefab; // Assign the bubble prefab
-    public float spawnInterval = 1f; // Time between spawns
+    public float spawnInterval = 0.90f; // Time between spawns
     public float spawnOffset = 2f; // How far above the camera to spawn bubbles
     [SerializeField] float minXBuffer = 1f; // Minimum buffer for X spawning
     [SerializeField] float maxXBuffer = 1f; // Maximum buffer for X spawning
@@ -14,7 +14,7 @@ public class BubbleSpawner : MonoBehaviour
 
     private Camera mainCamera;
     private float spawnTimer = 0f; // Timer to track spawn intervals
-    private float spawnRateIncreaseTimer = 0f; // Timer to track spawn rate increase intervals
+   
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class BubbleSpawner : MonoBehaviour
     {
         // Update timers
         spawnTimer += Time.deltaTime;
-        spawnRateIncreaseTimer += Time.deltaTime;
+        
 
         // Check if it's time to spawn a bubble
         if (spawnTimer >= spawnInterval)
@@ -36,12 +36,13 @@ public class BubbleSpawner : MonoBehaviour
         }
 
         // Increase spawn rate every 20 seconds
-        if (spawnRateIncreaseTimer >= 20f)
-        {
-            spawnRateIncreaseTimer = 0f; // Reset rate increase timer
-            spawnInterval *= 0.90f; // Reduce interval by 10% to increase spawn rate
-            spawnInterval = Mathf.Max(0.1f, spawnInterval); // Prevent spawnInterval from getting too small
-        }
+       
+    }
+
+    public void SetSpawnInterval()
+    {
+        spawnInterval *= 0.95f;
+        spawnInterval = Mathf.Max(0.1f, spawnInterval);
     }
 
     void SpawnBubble()

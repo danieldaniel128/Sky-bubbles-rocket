@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer head;
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer legs;
-
+    [SerializeField] FlashEffect flashEffect;
     [SerializeField] Rigidbody2D rb;
     public FuelScript fuel;
     [SerializeField] float HorizontalSpeed = 5f;
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()
     {
+        onHit += flashEffect.Flash;
         hasBeenHit = false;
     }
 
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
             lives--;
             StartCoroutine(RestDamageBool());
             onHit.Invoke();
+            
         }
         if (lives <= 0)
         {
