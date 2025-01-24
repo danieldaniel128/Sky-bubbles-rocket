@@ -2139,7 +2139,7 @@ GameObject:
   - component: {fileID: 918857875}
   - component: {fileID: 918857874}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RestartTestBTN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2208,7 +2208,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 918857875}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 750848389}
+        m_TargetAssemblyTypeName: ScrapsSpawner, Assembly-CSharp
+        m_MethodName: InitScrapsCoro
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1296360575}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &918857875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,6 +2843,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286839369}
   m_CullTransparentMesh: 1
+--- !u!1 &1296360575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6906307107816988959, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+  m_PrefabInstance: {fileID: 2071839660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1319533820
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: _epicProbability
-      value: 0.05
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: _rareProbability
@@ -3850,8 +3879,12 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: _legendaryProbability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: _rocketBodyDataSO.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: _rocketHeadDataSO.Array.size
@@ -3881,6 +3914,14 @@ PrefabInstance:
       propertyPath: '_rocketBodyDataSO.Array.data[5]'
       value: 
       objectReference: {fileID: 11400000, guid: 38a0b511738fa1b458182a541eb6214d, type: 2}
+    - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: '_rocketBodyDataSO.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 49878676ebefac343b6260625eef6277, type: 2}
+    - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: '_rocketBodyDataSO.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fff4fe5a758670e468817344ae49fe1b, type: 2}
     - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: '_rocketHeadDataSO.Array.data[0]'
       value: 
