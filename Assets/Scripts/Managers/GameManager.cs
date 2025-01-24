@@ -5,9 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public PlayerController PlayerController;
+    public BackgroundScroller BackgroundScroller;
     public CoinManager CoinManager;
     public List<GameObject> activeEntity = new List<GameObject>();
-
+    [SerializeField] GameObject InGameObjects;
     private void Awake()
     {
         if (instance == null)
@@ -20,20 +21,15 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Launch()
     {
-        
+        InGameObjects.SetActive(true);
     }
-
-    // Update is called once per frame
-    void Update()
+    [ContextMenu("Lose Game")]
+    public void LoseGame()
     {
-        
-    }
-    public void LoseHealth()
-    {
-
+        InGameObjects.SetActive(false);
+        BackgroundScroller.DeactivateScrol();
     }
     public void AddCoins(int amount)
     {

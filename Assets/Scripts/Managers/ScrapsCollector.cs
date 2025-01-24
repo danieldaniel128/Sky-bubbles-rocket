@@ -12,6 +12,8 @@ public class ScrapsCollector : MonoBehaviour
     [SerializeField] ScrapHandler _collectedHead;
     [SerializeField] ScrapHandler _collectedThrusters;
     [SerializeField] ScrapHandler _collectedBody;
+    [Header("Finish Building")]
+    [SerializeField] GameObject _launchButton;
     public void TryToCollectScrap(ScrapHandler collectedScrap)
     {
         switch (collectedScrap.ScrapType)
@@ -53,6 +55,7 @@ public class ScrapsCollector : MonoBehaviour
         releasedCollectedScrap.transform.position = releasedCollectedScrap.ScrapCreatedPosParent.position;
         releasedCollectedScrap.transform.SetParent(releasedCollectedScrap.ScrapCreatedPosParent);
         collectedScrap = null;
+        _launchButton.SetActive(false);
         Debug.Log($"<color=red>Released Scrap {releasedCollectedScrap.name}</color>");
         Debug.Log($"<color=red>Released Scrap new parent {releasedCollectedScrap.ScrapCreatedPosParent.name}</color>");
     }
@@ -78,6 +81,10 @@ public class ScrapsCollector : MonoBehaviour
             _collectedBody.transform.position = _bodyPos.position;
             //set new parent.
             _collectedBody.transform.SetParent(_bodyPos);
+        }
+        if (_collectedBody != null && _collectedThrusters != null && _collectedHead != null)
+        { 
+            _launchButton.SetActive(true);
         }
     }
 }
