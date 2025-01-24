@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 767d7c022a5fdce4c84acd6f7aaff54f
+guid: 09550ea1aca498d44b8bb0e6192ecc28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8840190469128881243
-    second: Bg_Objects_01_0
-  - first:
-      213: 311449370232416129
-    second: Bg_Objects_01_1
-  - first:
-      213: 4260656398966084388
-    second: Bg_Objects_01_2
+      213: 957940465665167878
+    second: Shampoo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -132,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_Objects_01_0
+      name: Shampoo_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 27
-        width: 441
-        height: 143
+        x: 111
+        y: 76
+        width: 84
+        height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,52 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ab77cc0b95515580800000000000000
-      internalID: -8840190469128881243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bg_Objects_01_1
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 24
-        width: 328
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 187e8365d8d725400800000000000000
-      internalID: 311449370232416129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bg_Objects_01_2
-      rect:
-        serializedVersion: 2
-        x: 796
-        y: 24
-        width: 623
-        height: 584
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4235e52cb64e02b30800000000000000
-      internalID: 4260656398966084388
+      spriteID: 602d1f337c94b4d00800000000000000
+      internalID: 957940465665167878
       vertices: []
       indices: 
       edges: []
@@ -201,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bg_Objects_01_0: -8840190469128881243
-      Bg_Objects_01_1: 311449370232416129
-      Bg_Objects_01_2: 4260656398966084388
+      Shampoo_0: 957940465665167878
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
