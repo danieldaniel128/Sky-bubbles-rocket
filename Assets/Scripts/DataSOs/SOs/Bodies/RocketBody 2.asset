@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
   m_Name: RocketBody 2
   m_EditorClassIdentifier: 
-  ScrapName: BodySquare
-  ScrapIcon: {fileID: -816608100, guid: 61550fc76171ab141ae5c0216d225f19, type: 3}
+  ScrapName: SoupBody
+  ScrapIcon: {fileID: -8974377490534708864, guid: 69fc005d2e10b354a938224dd8496971, type: 3}
   ScrapType: 1
+  Rarity: 1

@@ -53,12 +53,45 @@ public class ScrapsSpawner : MonoBehaviour
             _occupiedPositions.Add(scrapsPosition);
             scrapHandler = Instantiate(_scrapPrefab, scrapsPosition.position, Quaternion.identity, scrapsPosition);
             //set random scrap data from datas list
-            randomScrapData = _rocketBodyDataSO[Random.Range(0, _rocketBodyDataSO.Count)];
+            randomScrapData = GetRandomScrapByRarity(_allScrapDataSO);
             scrapHandler.SetScrap(randomScrapData, scrapsPosition);
             scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
             _allScrapCreated.Add(scrapHandler);
         }
         _generatedScrapsPositions.Clear();
+    }
+    private ScrapDataSO GetRandomScrapByRarity(List<ScrapDataSO> fromList)
+    {
+        // Get a random value to determine the rarity
+        float randomValue = Random.value;
+
+        // Determine the rarity based on the probabilities
+        RocketScrapRarity selectedRarity;
+        if (randomValue <= _commonProbability)
+        {
+            selectedRarity = RocketScrapRarity.Common;
+        }
+        else if (randomValue <= _commonProbability + _rareProbability)
+        {
+            selectedRarity = RocketScrapRarity.Rare;
+        }
+        else
+        {
+            selectedRarity = RocketScrapRarity.Epic;
+        }
+
+        // Filter the scraps by the selected rarity
+        List<ScrapDataSO> filteredScraps = fromList.FindAll(scrap => scrap.Rarity == selectedRarity);
+
+        // If there are no scraps of the selected rarity, return null
+        if (filteredScraps.Count == 0)
+        {
+            Debug.LogWarning($"No scraps available for rarity: {selectedRarity}");
+            return null;
+        }
+
+        // Return a random scrap from the filtered list
+        return filteredScraps[Random.Range(0, filteredScraps.Count)];
     }
     public void GenerateOneOfEachType()
     {
@@ -70,7 +103,7 @@ public class ScrapsSpawner : MonoBehaviour
         _occupiedPositions.Add(randomPos);
         scrapHandler = Instantiate(_scrapPrefab, randomPos.position, Quaternion.identity, randomPos);
         //set random scrap data from datas list
-        randomScrapData = _rocketBodyDataSO[Random.Range(0, _rocketBodyDataSO.Count)];
+        randomScrapData = GetRandomScrapByRarity(_rocketBodyDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
         _allScrapCreated.Add(scrapHandler);
@@ -80,7 +113,7 @@ public class ScrapsSpawner : MonoBehaviour
         _occupiedPositions.Add(randomPos);
         scrapHandler = Instantiate(_scrapPrefab, randomPos.position, Quaternion.identity, randomPos);
         //set random scrap data from datas list
-        randomScrapData = _rocketHeadDataSO[Random.Range(0, _rocketHeadDataSO.Count)];
+        randomScrapData = GetRandomScrapByRarity(_rocketHeadDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
         _allScrapCreated.Add(scrapHandler);
@@ -91,7 +124,7 @@ public class ScrapsSpawner : MonoBehaviour
         _occupiedPositions.Add(randomPos);
         scrapHandler = Instantiate(_scrapPrefab, randomPos.position, Quaternion.identity, randomPos);
         //set random scrap data from datas list
-        randomScrapData = _rocketThrustersDataSO[Random.Range(0, _rocketThrustersDataSO.Count)];
+        randomScrapData = GetRandomScrapByRarity(_rocketThrustersDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
         _allScrapCreated.Add(scrapHandler);
@@ -108,7 +141,6 @@ public class ScrapsSpawner : MonoBehaviour
     }
     public void InitScrapsCoro() 
     {
-        ClearDataFromLastGame();
         StartCoroutine(CreateNewScraps());
     }
     private void ClearDataFromLastGame()
@@ -129,6 +161,7 @@ public class ScrapsSpawner : MonoBehaviour
     }
     private IEnumerator CreateNewScraps()
     {
+        ClearDataFromLastGame();
         yield return new WaitForEndOfFrame(); // Wait for destruction to complete
         yield return new WaitForSeconds(0.1f);
         InitScraps();

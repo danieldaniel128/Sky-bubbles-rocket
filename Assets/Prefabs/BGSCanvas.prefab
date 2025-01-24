@@ -921,6 +921,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8a98261a747bbf469d30c788f5f2b29, type: 2}
   - {fileID: 11400000, guid: ef15eaadb7ae8f244a81b417a71c7d0f, type: 2}
   _allScrapDataSO: []
+  _allScrapCreated: []
   _generatedScrapsPositions:
   - {fileID: 4910675138181471644}
   - {fileID: 3565897559712189433}
@@ -1174,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4285636956345693318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1223,8 +1224,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -9146967343719441041, guid: 7d0e232c4b506aa488b5548bf8dd643c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
