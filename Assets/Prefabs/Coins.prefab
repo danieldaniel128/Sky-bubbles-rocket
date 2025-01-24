@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2347723762463466329}
   - component: {fileID: -1704675286242417264}
   m_Layer: 0
-  m_Name: Bubble 2
+  m_Name: Coins
   m_TagString: Bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
