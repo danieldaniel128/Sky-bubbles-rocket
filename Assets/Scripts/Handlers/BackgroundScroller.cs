@@ -7,16 +7,36 @@ public class BackgroundScroller : MonoBehaviour
     [SerializeField] private List<RectTransform> backgrounds; // List of background UI elements
     [SerializeField,Range(0,2)] private float scrollSpeed; // Speed at which the backgrounds scroll in pixels per second
     [SerializeField] private Canvas canvas; // Reference to the canvas
-
+    bool finishedLaunch = false;
     private float screenHeight;
-
+    private Vector2[] originalPositions;
     private void Start()
     {
         // Get the screen height in pixels based on the canvas scaler
         CanvasScaler canvasScaler = canvas.GetComponent<CanvasScaler>();
         screenHeight = canvasScaler.referenceResolution.y;
+        // Store original positions of the backgrounds
+        originalPositions = new Vector2[backgrounds.Count];
+        for (int i = 0; i < backgrounds.Count; i++)
+        {
+            originalPositions[i] = backgrounds[i].anchoredPosition;
+        }
     }
-
+    private void OnDisable()
+    {
+        finishedLaunch = false;
+    }
+    public void ActivateScrol()
+    {
+        this.enabled = true;
+    }
+    [ContextMenu("DeactivateScrol")]
+    public void DeactivateScrol()
+    {
+        this.enabled = false;
+        backgrounds[0].GetChild(0).gameObject.SetActive(true);
+        ResetBackgroundPositions();
+    }
     private void Update()
     {
         ScrollBackgrounds();
@@ -39,6 +59,12 @@ public class BackgroundScroller : MonoBehaviour
                     highestBackground.anchoredPosition.x,
                     highestBackground.anchoredPosition.y + backgroundHeight
                 );
+                //is the first background of bath
+                if (!finishedLaunch)
+                { 
+                    backgrounds[i].GetChild(0).gameObject.SetActive(false);
+                    finishedLaunch = true;
+                }
             }
             // Move each background down in pixels
             backgrounds[i].anchoredPosition += Vector2.down * scrollSpeed *1080 * Time.deltaTime;
@@ -60,5 +86,12 @@ public class BackgroundScroller : MonoBehaviour
         }
 
         return highest;
+    }
+    private void ResetBackgroundPositions()
+    {
+        for (int i = 0; i < backgrounds.Count; i++)
+        {
+            backgrounds[i].anchoredPosition = originalPositions[i];
+        }
     }
 }
