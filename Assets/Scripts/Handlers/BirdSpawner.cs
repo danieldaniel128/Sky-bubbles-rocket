@@ -8,7 +8,8 @@ public class BirdSpawner : MonoBehaviour
     [SerializeField] float minYBuffer = 1f; // Minimum buffer for Y spawning
     [SerializeField] float maxYBuffer = 4f; // Maximum buffer for Y spawning
     [SerializeField] float minSpawnDistance = 2f; // Minimum distance between obstacles
-
+    [SerializeField] List<AudioClip> birdSoundsLeftToRight;
+    [SerializeField] AudioClip firstRightToLeft;
     private Camera mainCamera;
     private float spawnTimer = 0f;
 
@@ -78,7 +79,15 @@ public class BirdSpawner : MonoBehaviour
         BirdObstacle behavior = obstacle.GetComponent<BirdObstacle>();
         if (behavior != null)
         {
-            behavior.SetLaunchDirection(spawnOnLeft);
+            AudioClip clip;
+            if (spawnOnLeft) {
+                 clip = birdSoundsLeftToRight[Random.Range(0, birdSoundsLeftToRight.Count)];
+            }
+            else
+            {
+                clip = firstRightToLeft;
+            }
+            behavior.SetLaunchDirection(spawnOnLeft,clip);
         }
     }
 
