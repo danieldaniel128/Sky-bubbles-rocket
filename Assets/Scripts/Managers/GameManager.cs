@@ -45,4 +45,8 @@ public class GameManager : MonoBehaviour
     {
         CoinManager.AddCoins(amount);
     }
+    public void RemoveCoins(int amount)
+    {
+        CoinManager.RemoveCoins(amount);
+    }
 }

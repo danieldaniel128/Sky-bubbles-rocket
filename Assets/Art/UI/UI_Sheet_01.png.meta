@@ -156,10 +156,10 @@ TextureImporter:
       name: UI_Sheet_01_0
       rect:
         serializedVersion: 2
-        x: 152
-        y: 110
-        width: 179
-        height: 151
+        x: 182
+        y: 129
+        width: 117
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,7 +381,7 @@ TextureImporter:
         width: 357
         height: 357
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -398,10 +398,10 @@ TextureImporter:
       name: UI_Sheet_01_11
       rect:
         serializedVersion: 2
-        x: 2466
-        y: 21
-        width: 210
-        height: 453
+        x: 2497
+        y: 350
+        width: 148
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,7 +425,7 @@ TextureImporter:
         width: 181
         height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -447,7 +447,7 @@ TextureImporter:
         width: 144
         height: 390
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,6 +456,50 @@ TextureImporter:
       bones: []
       spriteID: 8f8ae152c3a44c244ae11bc066a09093
       internalID: 2082277462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Sheet_01_14
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 130
+        width: 256
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85bdf9afa8357dc41815147f4b88c7fb
+      internalID: 1163408507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Sheet_01_15
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 6
+        width: 263
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9761ba7fea3cef64396ebcfecd8916e1
+      internalID: 1550756400
       vertices: []
       indices: 
       edges: []
@@ -480,6 +524,8 @@ TextureImporter:
       UI_Sheet_01_11: 1093443469
       UI_Sheet_01_12: -1222377919
       UI_Sheet_01_13: 2082277462
+      UI_Sheet_01_14: 1163408507
+      UI_Sheet_01_15: 1550756400
       UI_Sheet_01_2: 4173410094644734768
       UI_Sheet_01_3: -5069540800894968830
       UI_Sheet_01_4: 5755325820307361738

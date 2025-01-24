@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BirdObstacle : MonoBehaviour
@@ -6,6 +7,8 @@ public class BirdObstacle : MonoBehaviour
     private Vector2 direction;
     private Camera mainCamera;
     [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] List<Sprite> SpriteOptions;
 
     private bool isLaunched = false; // Tracks if the obstacle has been launched
 
@@ -21,6 +24,7 @@ public class BirdObstacle : MonoBehaviour
         }
         else
         {
+           spriteRenderer.flipX = true;
             direction = Quaternion.Euler(0, 0, angle) * Vector2.left; // Launch to the left
         }
 
@@ -29,6 +33,7 @@ public class BirdObstacle : MonoBehaviour
 
     void Start()
     {
+       spriteRenderer.sprite = SpriteOptions[Random.Range(0, SpriteOptions.Count)];
         // Reference to the main camera
         mainCamera = Camera.main;
 
@@ -96,11 +101,13 @@ public class BirdObstacle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Destroy the obstacle when it collides with the player
-        if (collision.CompareTag("Rocket"))
+        if (collision.attachedRigidbody.gameObject.CompareTag("Rocket"))
         {
-            if (collision.TryGetComponent(out PlayerController player))
+            if (collision.attachedRigidbody.TryGetComponent(out PlayerController player))
             {
                 player.LoseLives();
+                Destroy(gameObject);
+
             }
         }
     }
