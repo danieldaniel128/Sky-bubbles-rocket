@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ObstacleSpawner : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] float maxXBuffer = 1f; // Maximum buffer for X spawning
     [SerializeField] float minYBuffer = 2f; // Minimum buffer for Y spawning
     [SerializeField] float maxYBuffer = 4f; // Maximum buffer for Y spawning
+    [SerializeField] float minSpawnDistance = 1f; // Minimum distance between entities
 
     private Camera mainCamera;
     private float elapsedTime = 0f; // Track elapsed time
+
+    // Shared list to track all active entity positions
+  
 
     void Start()
     {
@@ -47,17 +52,44 @@ public class ObstacleSpawner : MonoBehaviour
         float randomXBuffer = Random.Range(minXBuffer, maxXBuffer);
         float randomYBuffer = Random.Range(minYBuffer, maxYBuffer);
 
-        // Clamp the X position within the camera's horizontal bounds
-        float spawnX = Random.Range(
-            mainCamera.transform.position.x - cameraWidth / 2 + randomXBuffer,
-            mainCamera.transform.position.x + cameraWidth / 2 - randomXBuffer
-        );
+        // Try to find a valid spawn position
+        Vector3 spawnPosition;
+        int attempts = 0;
+        do
+        {
+            // Randomize spawn position within camera bounds
+            float spawnX = Random.Range(
+                mainCamera.transform.position.x - cameraWidth / 2 + randomXBuffer,
+                mainCamera.transform.position.x + cameraWidth / 2 - randomXBuffer
+            );
 
-        // Spawn slightly above the camera's view
-        float spawnY = mainCamera.transform.position.y + (cameraHeight / 2) + randomYBuffer;
+            float spawnY = mainCamera.transform.position.y + (cameraHeight / 2) + randomYBuffer;
+            spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
-        // Instantiate the obstacle
-        Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
-        Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            attempts++;
+        }
+        while (IsPositionOverlapping(spawnPosition) && attempts < 10);
+
+        // Spawn the obstacle if a valid position is found
+        if (attempts < 10)
+        {
+            GameObject game =  Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            GameManager.instance.activeEntity.Add(game);
+        }
     }
+
+    bool IsPositionOverlapping(Vector3 position)
+    {
+        // Check if the position is too close to any existing entity positions
+        foreach (GameObject activePosition in GameManager.instance.activeEntity)
+        {
+            if (Vector3.Distance(position, activePosition.transform.position) < minSpawnDistance)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
 }

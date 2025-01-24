@@ -48,4 +48,10 @@ public class Bubble : MonoBehaviour
             }
         }
     }
+    private void OnDestroy()
+    {
+        GameManager.instance.activeEntity.Remove(transform.gameObject);
+
+
+    }
 }

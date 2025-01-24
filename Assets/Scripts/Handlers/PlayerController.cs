@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             //gameOver
         }
         onHit.Invoke();
-        cameraShake.StartShake();
+        
 
     }
     public void SetParts(Sprite head,Sprite body,Sprite legs)

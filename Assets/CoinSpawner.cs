@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class BubbleSpawner : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
-    public GameObject bubblePrefab; // Assign the bubble prefab
-    public float spawnInterval = 1f; // Time between spawns
-    public float spawnOffset = 2f; // How far above the camera to spawn bubbles
+    public GameObject coin; // Assign the coin prefab
+    public float spawnInterval = 1f; // Initial time between spawns
+    public float spawnOffset = 2f; // How far above the camera to spawn coins
     [SerializeField] float minXBuffer = 1f; // Minimum buffer for X spawning
     [SerializeField] float maxXBuffer = 1f; // Maximum buffer for X spawning
     [SerializeField] float minYBuffer = 2f; // Minimum buffer for Y spawning
@@ -13,6 +13,7 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField] float minSpawnDistance = 1f; // Minimum distance between entities
 
     private Camera mainCamera;
+    private float elapsedTime = 0f; // Track elapsed time
 
     // Shared list to track all active entity positions
    
@@ -21,12 +22,27 @@ public class BubbleSpawner : MonoBehaviour
     {
         // Get reference to the main camera
         mainCamera = Camera.main;
-        
-        // Start spawning bubbles
-        InvokeRepeating(nameof(SpawnBubble), 0f, spawnInterval);
+
+        // Start spawning coins
+        InvokeRepeating(nameof(SpawnCoins), 0f, spawnInterval);
     }
 
-    void SpawnBubble()
+    void Update()
+    {
+        // Increase spawn rate every 20 seconds
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= 20f)
+        {
+            elapsedTime = 0f; // Reset timer
+            spawnInterval *= 0.95f; // Increase spawn rate by reducing interval by 5%
+
+            // Update the spawn rate with the new interval
+            CancelInvoke(nameof(SpawnCoins));
+            InvokeRepeating(nameof(SpawnCoins), 0f, spawnInterval);
+        }
+    }
+
+    void SpawnCoins()
     {
         // Calculate camera bounds
         float cameraHeight = 2f * mainCamera.orthographicSize;
@@ -36,7 +52,7 @@ public class BubbleSpawner : MonoBehaviour
         float randomXBuffer = Random.Range(minXBuffer, maxXBuffer);
         float randomYBuffer = Random.Range(minYBuffer, maxYBuffer);
 
-        // Try to find a valid spawn position
+        // Find a valid spawn position
         Vector3 spawnPosition;
         int attempts = 0;
         do
@@ -54,11 +70,11 @@ public class BubbleSpawner : MonoBehaviour
         }
         while (IsPositionOverlapping(spawnPosition) && attempts < 10);
 
-        // Spawn the bubble if a valid position is found
+        // Spawn the coin if a valid position is found
         if (attempts < 10)
         {
-            GameObject bubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
-            GameManager.instance.activeEntity.Add(bubble);
+          GameObject game =   Instantiate(coin, spawnPosition, Quaternion.identity);
+            GameManager.instance.activeEntity.Add(game);
         }
     }
 
@@ -75,9 +91,9 @@ public class BubbleSpawner : MonoBehaviour
         return false;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        // Clean up active entity positions (optional, if bubbles are destroyed or move out of bounds)
-      
+        // Clean up active entity positions (optional, if coins are destroyed or move out of bounds)
+       
     }
 }

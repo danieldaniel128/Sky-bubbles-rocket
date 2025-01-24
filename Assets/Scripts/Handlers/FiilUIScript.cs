@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public class FiilUIScript : MonoBehaviour
 {
     [SerializeField] Image fillFuel;
-    [SerializeField] TextMeshProUGUI TEXT;
+    [SerializeField] TextMeshProUGUI MetersText;
+    [SerializeField] TextMeshProUGUI CoinsText;
     float score;
     [SerializeField] float addition;
     public List<Image> images = new List<Image>();
@@ -23,7 +24,7 @@ public class FiilUIScript : MonoBehaviour
     {
         score += addition * Time.deltaTime;
         CalculateFill();
-        TEXT.text = "Meters Passed: " + (int)score;
+        MetersText.text = "Meters Passed: " + (int)score;
 
 
     }

@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class ObstacleScript : MonoBehaviour
+public class CoinScript : MonoBehaviour
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float downwardForce = 1f;
     [SerializeField] int minSpeed;
@@ -24,6 +25,7 @@ public class ObstacleScript : MonoBehaviour
         // Destroy the bubble if it moves below the bottom of the camera
         if (transform.position.y < minY)
         {
+            GameManager.instance.activeEntity.Remove(gameObject);
             Destroy(gameObject);
         }
     }
@@ -41,7 +43,8 @@ public class ObstacleScript : MonoBehaviour
             {
                 if (collision.attachedRigidbody.TryGetComponent(out PlayerController player))
                 {
-                    player.LoseLives();
+                    GameManager.instance.AddCoins(1);
+                   
                     Destroy(gameObject);
 
                 }
@@ -50,7 +53,7 @@ public class ObstacleScript : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Debug.Log("Heyo");
         GameManager.instance.activeEntity.Remove(transform.gameObject);
+
     }
 }
