@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3573c5ec8b64f814c9892696bd925fd9, type: 3}
-  m_Name: ShowerCapRed
+  m_Script: {fileID: 11500000, guid: 494d1f8f364c2af4fb1adff0a515ee07, type: 3}
+  m_Name: ShowerCap
   m_EditorClassIdentifier: 
-  ScrapName: ShowerCapRed
+  ScrapName: showercap
   ScrapIcon: {fileID: -2553745286384078455, guid: 717d04f3a6088fc4eb6af317eeb21946, type: 3}
-  ScrapType: 2
+  ScrapType: 0
   Rarity: 1
-  Lives: 3
+  Fuel: 100
