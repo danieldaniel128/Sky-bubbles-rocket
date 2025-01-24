@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 4322807235276301267, guid: efc58f93303c94a4c980979a729ea3e7, type: 3}
-  spawnInterval: 8
+  spawnInterval: 4
   spawnOffset: 4
   minXBuffer: 1
   maxXBuffer: 1
