@@ -8,12 +8,12 @@ public class FlashEffect : MonoBehaviour
     private List<Material> originalMaterials = new List<Material>();
     [SerializeField] private Material whiteFlashMaterial; // Flash material
     public float flashDuration = 2f; // Total time for flashing
-    public float flashInterval = 0.2f; // Time between each flash
+    public float flashInterval = 0.4f; // Time between each flash
 
     private void Start()
     {
         // Get all SpriteRenderer components in this GameObject and its children
-        spriteRenderers.AddRange(GetComponentsInChildren<SpriteRenderer>());
+     
 
         // Store the original materials of each SpriteRenderer
         foreach (var sr in spriteRenderers)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BirdSpawner : MonoBehaviour
 {
@@ -6,9 +7,13 @@ public class BirdSpawner : MonoBehaviour
     public float spawnInterval = 1f; // Time between spawns
     [SerializeField] float minYBuffer = 1f; // Minimum buffer for Y spawning
     [SerializeField] float maxYBuffer = 4f; // Maximum buffer for Y spawning
+    [SerializeField] float minSpawnDistance = 2f; // Minimum distance between obstacles
 
     private Camera mainCamera;
     private float spawnTimer = 0f;
+
+    // Track active obstacles to prevent overlapping
+    
 
     void Start()
     {
@@ -32,10 +37,28 @@ public class BirdSpawner : MonoBehaviour
         float cameraHeight = 2f * mainCamera.orthographicSize;
 
         // Randomize Y position within the camera's vertical bounds
-        float spawnY = Random.Range(
-            mainCamera.transform.position.y - cameraHeight / 2 + minYBuffer,
-            mainCamera.transform.position.y + cameraHeight / 2 - maxYBuffer
-        );
+        float spawnY;
+        int attempts = 0;
+        bool validPosition = false;
+
+        do
+        {
+            spawnY = Random.Range(
+                mainCamera.transform.position.y - cameraHeight / 2 + minYBuffer,
+                mainCamera.transform.position.y + cameraHeight / 2 - maxYBuffer
+            );
+
+            // Check if the position is valid
+            validPosition = IsPositionValid(new Vector3(0, spawnY, 0));
+            attempts++;
+        }
+        while (!validPosition && attempts < 10);
+
+        if (!validPosition)
+        {
+            Debug.LogWarning("Could not find a valid position for spawning after 10 attempts.");
+            return;
+        }
 
         // Randomly decide whether to spawn on the left or right
         bool spawnOnLeft = Random.value > 0.5f;
@@ -48,11 +71,30 @@ public class BirdSpawner : MonoBehaviour
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
         GameObject obstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
 
+        // Add the obstacle to the active list
+        GameManager.instance.activeBird.Add(obstacle);
+
         // Set the launch direction
         BirdObstacle behavior = obstacle.GetComponent<BirdObstacle>();
         if (behavior != null)
         {
             behavior.SetLaunchDirection(spawnOnLeft);
         }
+    }
+
+
+    private bool IsPositionValid(Vector3 position)
+    {
+        foreach (GameObject obstacle in GameManager.instance.activeBird)
+        {
+            if (obstacle == null) continue;
+
+            float distance = Vector3.Distance(obstacle.transform.position, position);
+            if (distance < minSpawnDistance)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -97,7 +97,10 @@ public class BirdObstacle : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void OnDestroy()
+    {
+        GameManager.instance.activeBird.Remove(gameObject);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Destroy the obstacle when it collides with the player
