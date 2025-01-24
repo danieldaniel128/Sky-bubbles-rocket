@@ -6,4 +6,6 @@ public class ScrapDataSO : ScriptableObject
     public string ScrapName;
     public Sprite ScrapIcon;
     public RocketScrapType ScrapType;
+    public RocketScrapRarity Rarity;
+
 }

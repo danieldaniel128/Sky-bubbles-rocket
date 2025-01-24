@@ -1298,6 +1298,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &750848389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+  m_PrefabInstance: {fileID: 2071839660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3a32c8f07ee6b42be188f221f1ca2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &851361729 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1739965550544812710, guid: e36766f5f5b4bae46872aa33eca6d234, type: 3}
@@ -2150,6 +2161,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: _epicProbability
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: _rareProbability
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115486063874495170, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: _commonProbability
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1170631207524123384, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_Name
       value: BGSCanvas
@@ -2158,17 +2181,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 4311732447757728617, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4311732447757728617, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -9146967343719441041, guid: 7d0e232c4b506aa488b5548bf8dd643c, type: 3}
     - target: {fileID: 6906307107816988959, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8987929269693639087, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2547,6 +2562,10 @@ PrefabInstance:
       propertyPath: InGameObjects
       value: 
       objectReference: {fileID: 1661279622}
+    - target: {fileID: 1739965550544812710, guid: e36766f5f5b4bae46872aa33eca6d234, type: 3}
+      propertyPath: ScrapsSpawner
+      value: 
+      objectReference: {fileID: 750848389}
     - target: {fileID: 1739965550544812710, guid: e36766f5f5b4bae46872aa33eca6d234, type: 3}
       propertyPath: InGaqmeobjects
       value: 

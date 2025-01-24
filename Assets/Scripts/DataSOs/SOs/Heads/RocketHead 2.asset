@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RocketHead 2
   m_EditorClassIdentifier: 
   ScrapName: 
-  ScrapIcon: {fileID: -875543599, guid: 61550fc76171ab141ae5c0216d225f19, type: 3}
+  ScrapIcon: {fileID: 7113486693448511334, guid: 69fc005d2e10b354a938224dd8496971, type: 3}
   ScrapType: 2
+  Rarity: 1
   Lives: 3

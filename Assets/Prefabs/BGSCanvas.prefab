@@ -1071,6 +1071,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8a98261a747bbf469d30c788f5f2b29, type: 2}
   - {fileID: 11400000, guid: ef15eaadb7ae8f244a81b417a71c7d0f, type: 2}
   _allScrapDataSO: []
+  _allScrapCreated: []
   _generatedScrapsPositions:
   - {fileID: 4910675138181471644}
   - {fileID: 3565897559712189433}
@@ -1324,7 +1325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4285636956345693318
 RectTransform:
   m_ObjectHideFlags: 0
