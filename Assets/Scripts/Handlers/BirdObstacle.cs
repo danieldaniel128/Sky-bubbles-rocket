@@ -9,10 +9,11 @@ public class BirdObstacle : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] List<Sprite> SpriteOptions;
-
+    bool hasSoundPlayed = false;
+    private AudioClip playableClip;
     private bool isLaunched = false; // Tracks if the obstacle has been launched
 
-    public void SetLaunchDirection(bool fromLeft)
+    public void SetLaunchDirection(bool fromLeft,AudioClip clip)
     {
         // Randomize the angle within a 180-degree range
         float angle = Random.Range(-45f, 45f);
@@ -28,6 +29,7 @@ public class BirdObstacle : MonoBehaviour
             direction = Quaternion.Euler(0, 0, angle) * Vector2.left; // Launch to the left
         }
 
+        this.playableClip = clip;
         // Draw the trajectory immediately
     }
 
@@ -52,6 +54,11 @@ public class BirdObstacle : MonoBehaviour
 
         if (isLaunched)
         {
+            if (playableClip!= null && !hasSoundPlayed)
+            {
+                hasSoundPlayed = true;
+                SoundManager.Instance.PlaySFX(playableClip);
+            }
             // Move the obstacle in the set direction
             transform.position += (Vector3)direction * speed * Time.deltaTime;
 
