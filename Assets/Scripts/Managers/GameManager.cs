@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         }
         
         activeEntity.Clear();
+
         ScrapsSpawner.InitScrapsCoro();
     }
     public void Launch()

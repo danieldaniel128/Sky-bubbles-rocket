@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 4322807235276301267, guid: efc58f93303c94a4c980979a729ea3e7, type: 3}
-  spawnInterval: 4
+  spawnInterval: 2
   spawnOffset: 4
   minXBuffer: 1
   maxXBuffer: 1
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 4322807235276301267, guid: cb5d412c4b36a124bbda76c91c3c9472, type: 3}
-  spawnInterval: 1
+  spawnInterval: 2
   spawnOffset: 2
   minXBuffer: 1
   maxXBuffer: 1
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1059484373652858568, guid: eeef0c5e9f41dbd4d9fecbc472018e5a, type: 3}
-  spawnInterval: 1
+  spawnInterval: 3
   minYBuffer: 1
   maxYBuffer: 4
 --- !u!1001 &446371699
@@ -2038,7 +2038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &857630394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2169,6 +2169,7 @@ GameObject:
   - component: {fileID: 1058585915}
   - component: {fileID: 1058585917}
   - component: {fileID: 1058585918}
+  - component: {fileID: 1058585919}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Rocket
@@ -2191,10 +2192,11 @@ MonoBehaviour:
   head: {fileID: 183042771}
   body: {fileID: 1893896346}
   legs: {fileID: 703247917}
+  flashEffect: {fileID: 1058585919}
   rb: {fileID: 1058585917}
   fuel: {fileID: 703247919}
   HorizontalSpeed: 5
-  VerticalSpeed: 5
+  VerticalSpeed: 8
   decelerationFactor: 0.95
   lives: 0
   cameraShake: {fileID: 0}
@@ -2259,6 +2261,25 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   xBuffer: 0.5
   yBuffer: 1.5
+--- !u!114 &1058585919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058585914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4766975373ea23489eef28c4da960c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 183042771}
+  - {fileID: 1893896346}
+  - {fileID: 703247917}
+  whiteFlashMaterial: {fileID: 2100000, guid: edd1748f9ede35e47bf456dc5e40449f, type: 2}
+  flashDuration: 2
+  flashInterval: 0.2
 --- !u!1 &1070054453
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,7 +3570,7 @@ PrefabInstance:
       objectReference: {fileID: 1093443469, guid: 7d0e232c4b506aa488b5548bf8dd643c, type: 3}
     - target: {fileID: 5716991455128818462, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6906307107816988959, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_IsActive
