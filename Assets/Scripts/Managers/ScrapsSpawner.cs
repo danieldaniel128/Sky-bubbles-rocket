@@ -194,7 +194,7 @@ public class ScrapsSpawner : MonoBehaviour
                 _legendaryProbability = 0.15f;
                 break;
             default:
-                upgradeRarity.gameObject.SetActive(false);
+                upgradeRarity.interactable = false;
                 break;
         }
     }
