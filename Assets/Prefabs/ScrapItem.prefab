@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3322757546140802446}
   m_Layer: 5
   m_Name: ScrapItem
-  m_TagString: Untagged
+  m_TagString: Scrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,4 +90,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scrapImage: {fileID: 6827727687670574443}
   _crupDataSO: {fileID: 0}
-  _scrapParent: {fileID: 0}
