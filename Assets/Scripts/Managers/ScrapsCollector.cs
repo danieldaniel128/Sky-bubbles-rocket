@@ -61,24 +61,26 @@ public class ScrapsCollector : MonoBehaviour
     }
     private void UpdateRocketBodyParts()
     {
+        Vector3 Offset = -Vector3.forward * 10;
         if (_collectedHead != null)
         {
             //set to part position
-            _collectedHead.transform.position = _headPos.position;
+            _collectedHead.transform.position = _headPos.position + Offset;
+
             //set new parent.
             _collectedHead.transform.SetParent(_headPos);
         }
         if (_collectedThrusters != null)
         {
             //set to part position
-            _collectedThrusters.transform.position = _thrustersPos.position;
+            _collectedThrusters.transform.position = _thrustersPos.position + Offset;
             //set new parent.
             _collectedThrusters.transform.SetParent(_thrustersPos);
         }
         if (_collectedBody != null)
         { 
             //set to part position
-            _collectedBody.transform.position = _bodyPos.position;
+            _collectedBody.transform.position = _bodyPos.position + Offset;
             //set new parent.
             _collectedBody.transform.SetParent(_bodyPos);
         }

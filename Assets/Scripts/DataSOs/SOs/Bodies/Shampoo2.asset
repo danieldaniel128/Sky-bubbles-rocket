@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3573c5ec8b64f814c9892696bd925fd9, type: 3}
-  m_Name: RocketHead 1
+  m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
+  m_Name: Shampoo2
   m_EditorClassIdentifier: 
-  ScrapName: Duck
-  ScrapIcon: {fileID: 6739340418379772455, guid: 7fa985df875dc23488f2f30908118065, type: 3}
-  ScrapType: 2
-  Rarity: 0
-  Lives: 2
+  ScrapName: Shampo
+  ScrapIcon: {fileID: -2047450006629094946, guid: c2e48ba2f20ea364ea2bf14fad9834e8, type: 3}
+  ScrapType: 1
+  Rarity: 1

@@ -42,7 +42,7 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     {
         //set scrap data.
         ScrupDataSO = scrapDataSO;
-        ScrapType = scrapDataSO.ScrapType; 
+        ScrapType = scrapDataSO.ScrapType;
         //set scrap sprite.
         SetScrapSprite(scrapDataSO.ScrapIcon);
         //set scrap gameobject name in hierarchy.

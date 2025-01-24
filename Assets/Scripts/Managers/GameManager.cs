@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerController PlayerController;
     public CoinManager CoinManager;
     public List<GameObject> activeEntity = new List<GameObject>();
+    public List<GameObject> activeBird = new List<GameObject>();
     public bool isGameOver;
     [SerializeField] GameObject InGaqmeobjects;
     [SerializeField] BackgroundScroller BackgroundScroller;
@@ -33,8 +34,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(entity.gameObject);
         }
-        
+        foreach (var bird in activeBird)
+        {
+            Destroy(bird.gameObject);
+        }
+
         activeEntity.Clear();
+        activeBird.Clear();
 
         ScrapsSpawner.InitScrapsCoro();
     }

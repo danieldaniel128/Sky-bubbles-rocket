@@ -6,6 +6,7 @@ public class Bubble : MonoBehaviour
     [SerializeField]float downwardForce = 1f;
     [SerializeField] int minSpeed;
     [SerializeField] int maxSpeed;
+    [SerializeField] AudioClip popSound;
     private Camera mainCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +43,7 @@ public class Bubble : MonoBehaviour
                 if (collision.attachedRigidbody.TryGetComponent(out PlayerController player))
                 {
                    player.ReFuel(10);
+                    SoundManager.Instance.PlaySFX(popSound);    
                     Destroy(gameObject);
 
                 }
