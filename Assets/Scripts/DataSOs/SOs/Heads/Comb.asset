@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3573c5ec8b64f814c9892696bd925fd9, type: 3}
-  m_Name: RocketHead 2
+  m_Name: Comb
   m_EditorClassIdentifier: 
-  ScrapName: 
-  ScrapIcon: {fileID: 7113486693448511334, guid: 69fc005d2e10b354a938224dd8496971, type: 3}
+  ScrapName: Comb
+  ScrapIcon: {fileID: 5699450557912355524, guid: 549d2dd7684a6e7448162dbd23d339b7, type: 3}
   ScrapType: 2
-  Rarity: 1
-  Lives: 3
+  Rarity: 0
+  Lives: 2

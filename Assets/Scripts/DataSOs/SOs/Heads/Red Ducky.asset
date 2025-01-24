@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
-  m_Name: RocketBody 1
+  m_Script: {fileID: 11500000, guid: 3573c5ec8b64f814c9892696bd925fd9, type: 3}
+  m_Name: Red Ducky
   m_EditorClassIdentifier: 
-  ScrapName: Shampo
-  ScrapIcon: {fileID: -3954093249041105617, guid: 7fa985df875dc23488f2f30908118065, type: 3}
-  ScrapType: 1
+  ScrapName: RedDucky
+  ScrapIcon: {fileID: 8068531906196354090, guid: 3a1966b0c0fdfea46bfaa4a989713e2b, type: 3}
+  ScrapType: 2
+  Rarity: 2
+  Lives: 4

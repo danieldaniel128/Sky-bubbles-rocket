@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
-  m_Name: RocketBody 2
+  m_Script: {fileID: 11500000, guid: 494d1f8f364c2af4fb1adff0a515ee07, type: 3}
+  m_Name: Plug Yellow
   m_EditorClassIdentifier: 
-  ScrapName: SoupBody
-  ScrapIcon: {fileID: -8974377490534708864, guid: 69fc005d2e10b354a938224dd8496971, type: 3}
-  ScrapType: 1
-  Rarity: 1
+  ScrapName: plug yellow
+  ScrapIcon: {fileID: 1056346470395810937, guid: bf512068bacfb0a4ab9850bc5ae5e6a8, type: 3}
+  ScrapType: 0
+  Rarity: 0
+  Fuel: 75
