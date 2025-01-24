@@ -40,6 +40,7 @@ public class BackgroundScroller : MonoBehaviour
     {
         this.enabled = false;
         _bathUI.SetActive(true);
+        _rocketUI.SetActive(true);
         ResetBackgroundPositions();
     }
     private void Update()

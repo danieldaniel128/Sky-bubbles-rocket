@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class ScrapsSpawner : MonoBehaviour
 
     [Header("All Scraps, readonly")]
     [SerializeField] List<ScrapDataSO> _allScrapDataSO;
+    [SerializeField] List<ScrapHandler> _allScrapCreated;
 
     [Header("scraps positions")]
     [SerializeField] List<Transform> _generatedScrapsPositions;
@@ -33,7 +35,7 @@ public class ScrapsSpawner : MonoBehaviour
     {
         InitScraps();
     }
-    void InitScraps()
+    private void InitScraps()
     {
         //clean it from last session.
         _allScrapDataSO.Clear();
@@ -54,7 +56,9 @@ public class ScrapsSpawner : MonoBehaviour
             randomScrapData = _rocketBodyDataSO[Random.Range(0, _rocketBodyDataSO.Count)];
             scrapHandler.SetScrap(randomScrapData, scrapsPosition);
             scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+            _allScrapCreated.Add(scrapHandler);
         }
+        _generatedScrapsPositions.Clear();
     }
     public void GenerateOneOfEachType()
     {
@@ -69,6 +73,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomScrapData = _rocketBodyDataSO[Random.Range(0, _rocketBodyDataSO.Count)];
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+        _allScrapCreated.Add(scrapHandler);
 
         randomPos = GetRandomPosAndOccupie();
         //removed now and add to occupied.
@@ -78,6 +83,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomScrapData = _rocketHeadDataSO[Random.Range(0, _rocketHeadDataSO.Count)];
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+        _allScrapCreated.Add(scrapHandler);
 
         randomPos = GetRandomPosAndOccupie();
         //
@@ -88,6 +94,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomScrapData = _rocketThrustersDataSO[Random.Range(0, _rocketThrustersDataSO.Count)];
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+        _allScrapCreated.Add(scrapHandler);
     }
     private Transform GetRandomPosAndOccupie()
     {
@@ -98,5 +105,32 @@ public class ScrapsSpawner : MonoBehaviour
             randomPos = _generatedScrapsPositions[Random.Range(0, _generatedScrapsPositions.Count)];
         }
         return randomPos;
+    }
+    public void InitScrapsCoro() 
+    {
+        ClearDataFromLastGame();
+        StartCoroutine(CreateNewScraps());
+    }
+    private void ClearDataFromLastGame()
+    {
+        if(_occupiedPositions.Count>0)
+        for (int i = 0; i < _occupiedPositions.Count; i++)
+        {
+            _generatedScrapsPositions.Add(_occupiedPositions[i]);
+        }
+        foreach (ScrapHandler obj in _allScrapCreated)
+        {
+            Debug.Log("destroyed created scrp from last game");
+            obj.gameObject.SetActive(false);
+        }
+        Debug.Log("cleared data from last game");
+        _allScrapCreated.Clear();
+        _occupiedPositions.Clear();
+    }
+    private IEnumerator CreateNewScraps()
+    {
+        yield return new WaitForEndOfFrame(); // Wait for destruction to complete
+        yield return new WaitForSeconds(0.1f);
+        InitScraps();
     }
 }

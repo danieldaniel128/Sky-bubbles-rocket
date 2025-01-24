@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     [SerializeField] GameObject InGaqmeobjects;
     [SerializeField] BackgroundScroller BackgroundScroller;
+    [SerializeField] ScrapsSpawner ScrapsSpawner;
     private void Awake()
     {
         if (instance == null)
@@ -22,17 +23,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void LoseGame()
     {
         InGaqmeobjects.SetActive(false);
@@ -44,6 +35,7 @@ public class GameManager : MonoBehaviour
         }
         
         activeEntity.Clear();
+        ScrapsSpawner.InitScrapsCoro();
     }
     public void Launch()
     {
