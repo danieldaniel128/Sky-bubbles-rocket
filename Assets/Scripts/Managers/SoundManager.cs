@@ -34,7 +34,15 @@ public class SoundManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
-        AudioSource source = sfxSources.Find(s => !s.isPlaying);
+        AudioSource source = null;
+        foreach (var item in sfxSources)
+        {
+            if (!item.isPlaying)
+            {
+                source = item;
+                break;
+            }
+        }
         source.volume = sfxVolume;
         source.PlayOneShot(clip);
 
