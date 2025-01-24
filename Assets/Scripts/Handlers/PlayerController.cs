@@ -97,6 +97,11 @@ public class PlayerController : MonoBehaviour
         this.head.sprite = head;
         this.body.sprite = body;
         this.legs.sprite = legs;
-
+    }
+    public void UpdateTintMaterialSprites()
+    {
+        this.head.material.mainTexture = head.sprite.texture;
+        this.body.material.mainTexture = body.sprite.texture;
+        this.legs.material.mainTexture = legs.sprite.texture;
     }
 }
