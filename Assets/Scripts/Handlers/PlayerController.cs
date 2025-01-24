@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public int lives;
     public event Action onHit;
     [SerializeField] CameraShake cameraShake;
+    [SerializeField] float InvincibilityTime = 1f;
+    bool hasBeenHit = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,14 +64,24 @@ public class PlayerController : MonoBehaviour
     }
     public void LoseLives()
     {
-        lives--;
+        if (!hasBeenHit)
+        {
+           hasBeenHit = true;
+            lives--;
+            StartCoroutine(RestDamageBool());
+            onHit.Invoke();
+        }
         if (lives <= 0)
         {
             //gameOver
         }
-        onHit.Invoke();
         
 
+    }
+    private IEnumerator RestDamageBool()
+    {
+        yield return new WaitForSeconds(InvincibilityTime);
+        hasBeenHit = false;
     }
     public void SetParts(Sprite head,Sprite body,Sprite legs)
     {

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public CoinManager CoinManager;
     public List<GameObject> activeEntity = new List<GameObject>();
 
+
     private void Awake()
     {
         if (instance == null)

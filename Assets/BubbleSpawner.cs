@@ -11,7 +11,7 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField] float minYBuffer = 2f; // Minimum buffer for Y spawning
     [SerializeField] float maxYBuffer = 4f; // Maximum buffer for Y spawning
     [SerializeField] float minSpawnDistance = 1f; // Minimum distance between entities
-
+    private float elapsedTime = 0f; // Track elapsed time
     private Camera mainCamera;
 
     // Shared list to track all active entity positions
@@ -24,6 +24,20 @@ public class BubbleSpawner : MonoBehaviour
         
         // Start spawning bubbles
         InvokeRepeating(nameof(SpawnBubble), 0f, spawnInterval);
+    }
+    void Update()
+    {
+        // Increase spawn rate every 20 seconds
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= 20f)
+        {
+            elapsedTime = 0f; // Reset timer
+            spawnInterval *= 0.90f; // Increase spawn rate by reducing interval by 5%
+
+            // Update the spawn rate with the new interval
+            CancelInvoke(nameof(SpawnBubble));
+            InvokeRepeating(nameof(SpawnBubble), 0f, spawnInterval);
+        }
     }
 
     void SpawnBubble()
