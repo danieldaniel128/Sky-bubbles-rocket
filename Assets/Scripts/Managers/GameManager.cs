@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public PlayerController PlayerController;
     public CoinManager CoinManager;
     public List<GameObject> activeEntity = new List<GameObject>();
-
+    public bool isGameOver;
     [SerializeField] GameObject InGaqmeobjects;
     [SerializeField] BackgroundScroller BackgroundScroller;
     private void Awake()
@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
     {
         InGaqmeobjects.SetActive(false);
         BackgroundScroller.DeactivateScrol();
+        isGameOver = true;
+        foreach (var entity in activeEntity)
+        {
+            Destroy(entity.gameObject);
+        }
+        activeEntity.Clear();
     }
     public void Launch()
     {

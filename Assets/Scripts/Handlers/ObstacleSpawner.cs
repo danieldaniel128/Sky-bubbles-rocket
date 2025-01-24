@@ -13,32 +13,34 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] float minSpawnDistance = 1f; // Minimum distance between entities
 
     private Camera mainCamera;
-    private float elapsedTime = 0f; // Track elapsed time
-
-    // Shared list to track all active entity positions
-  
+    private float spawnTimer = 0f; // Timer to track spawn intervals
+    private float spawnRateIncreaseTimer = 0f; // Timer to track spawn rate increase intervals
 
     void Start()
     {
         // Get reference to the main camera
         mainCamera = Camera.main;
-
-        // Start spawning obstacles
-        InvokeRepeating(nameof(SpawnObstacle), 0f, spawnInterval);
     }
 
     void Update()
     {
-        // Increase spawn rate every 10 seconds
-        elapsedTime += Time.deltaTime;
-        if (elapsedTime >= 10f)
-        {
-            elapsedTime = 0f; // Reset timer
-            spawnInterval *= 0.9f; // Increase spawn rate by reducing interval by 10%
+        // Update timers
+        spawnTimer += Time.deltaTime;
+        spawnRateIncreaseTimer += Time.deltaTime;
 
-            // Update the spawn rate with the new interval
-            CancelInvoke(nameof(SpawnObstacle));
-            InvokeRepeating(nameof(SpawnObstacle), 0f, spawnInterval);
+        // Check if it's time to spawn an obstacle
+        if (spawnTimer >= spawnInterval)
+        {
+            SpawnObstacle();
+            spawnTimer = 0f; // Reset spawn timer
+        }
+
+        // Increase spawn rate every 10 seconds
+        if (spawnRateIncreaseTimer >= 10f)
+        {
+            spawnRateIncreaseTimer = 0f; // Reset rate increase timer
+            spawnInterval *= 0.9f; // Reduce interval by 10% to increase spawn rate
+            spawnInterval = Mathf.Max(0.1f, spawnInterval); // Prevent spawnInterval from getting too small
         }
     }
 
@@ -73,7 +75,7 @@ public class ObstacleSpawner : MonoBehaviour
         // Spawn the obstacle if a valid position is found
         if (attempts < 10)
         {
-            GameObject game =  Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            GameObject game = Instantiate(obstacle, spawnPosition, Quaternion.identity);
             GameManager.instance.activeEntity.Add(game);
         }
     }
@@ -90,6 +92,4 @@ public class ObstacleSpawner : MonoBehaviour
         }
         return false;
     }
-
-    
 }
