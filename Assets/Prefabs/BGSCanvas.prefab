@@ -301,7 +301,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170631207524123384}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7962ccdc17d0384abe9ecb6507c870a, type: 3}
   m_Name: 
@@ -309,7 +309,7 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 8338717554986013929}
   - {fileID: 6023499331947662103}
-  scrollSpeed: 1.451
+  scrollSpeed: 1.1
   canvas: {fileID: 1777063011064583435}
 --- !u!1 &1991530646622963696
 GameObject:
@@ -940,6 +940,7 @@ MonoBehaviour:
   _collectedHead: {fileID: 0}
   _collectedThrusters: {fileID: 0}
   _collectedBody: {fileID: 0}
+  _launchButton: {fileID: 6906307107816988959}
 --- !u!1 &5798412280851657843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8977989788036303970}
   m_Layer: 5
-  m_Name: BathTab_LaunchContainer
+  m_Name: MiniGameObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1264,7 +1265,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4311732447757728617}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6973809418991092262}
+        m_TargetAssemblyTypeName: BackgroundScroller, Assembly-CSharp
+        m_MethodName: ActivateScrol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Launch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6925024128565491767
 GameObject:
   m_ObjectHideFlags: 0

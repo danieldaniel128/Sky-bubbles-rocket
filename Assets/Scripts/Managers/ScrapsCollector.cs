@@ -86,5 +86,6 @@ public class ScrapsCollector : MonoBehaviour
         { 
             _launchButton.SetActive(true);
         }
+        GameManager.instance.PlayerController.SetParts(_collectedHead._scrapSprite, _collectedBody._scrapSprite, _collectedThrusters._scrapSprite);
     }
 }

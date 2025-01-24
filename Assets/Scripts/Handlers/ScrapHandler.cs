@@ -9,6 +9,16 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler
     [SerializeField] ScrapDataSO _crupDataSO;
 
     public Transform ScrapCreatedPosParent { get; set; }
+    public Sprite _scrapSprite
+    {
+        get
+        {
+            if (_scrapImage != null)
+                return _scrapImage.sprite; // Add 'return' to return the sprite
+            else
+                return null; // Explicitly return null if _scrapImage is null
+        }
+    }
     public ScrapDataSO ScrupDataSO { get { return _crupDataSO; } private set { _crupDataSO = value; } }
     public RocketScrapType ScrapType { get; private set; }
     //events
