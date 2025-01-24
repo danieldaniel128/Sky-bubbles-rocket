@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a6e2b24572930df43a292631572025fd
+guid: 3a1966b0c0fdfea46bfaa4a989713e2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3305357521027955929
-    second: Enemy 2 var_0
-  - first:
-      213: 8170011683753780357
-    second: Enemy 2 var_1
+      213: 8068531906196354090
+    second: Duck1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy 2 var_0
+      name: Duck1_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 247
-        width: 213
-        height: 170
+        x: 89
+        y: 99
+        width: 78
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 723867fd8d20122d0800000000000000
-      internalID: -3305357521027955929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy 2 var_1
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 54
-        width: 213
-        height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5846fecf656b16170800000000000000
-      internalID: 8170011683753780357
+      spriteID: a243dbf050f29ff60800000000000000
+      internalID: 8068531906196354090
       vertices: []
       indices: 
       edges: []
@@ -185,9 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Enemy 2 var_0: -3305357521027955929
-      Enemy 2 var_1: 8170011683753780357
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
