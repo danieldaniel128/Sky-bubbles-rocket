@@ -17,6 +17,7 @@ public class FiilUIScript : MonoBehaviour
     void Start()
     {
         GameManager.instance.PlayerController.onHit += RemoveHeart;
+        GameManager.instance.PlayerController.onDeath += DisplayHearts;
     }
 
     // Update is called once per frame
@@ -41,5 +42,13 @@ public class FiilUIScript : MonoBehaviour
         }
         Image image = images[GameManager.instance.PlayerController.lives];
         image.enabled = false;
+    }
+    private void DisplayHearts()
+    {
+        foreach (var image in images)
+        {
+            image.enabled = true;
+        }
+        CalculateFill();
     }
 }
