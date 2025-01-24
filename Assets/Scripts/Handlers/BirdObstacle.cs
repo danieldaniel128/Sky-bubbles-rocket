@@ -50,17 +50,4 @@ public class BirdObstacle : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Destroy the obstacle when it collides with the player
-        if (collision.CompareTag("Rocket"))
-        {
-            if (collision.TryGetComponent(out PlayerController player))
-            {
-                player.LoseLives();
-            }
-            Destroy(gameObject);
-        }
-    }
 }
