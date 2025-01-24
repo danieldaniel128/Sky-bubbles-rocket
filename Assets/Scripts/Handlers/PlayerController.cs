@@ -25,9 +25,9 @@ public class PlayerController : MonoBehaviour
     bool hasBeenHit = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnEnable()
     {
-        lives = 3;
+        hasBeenHit = false;
     }
 
     // Update is called once per frame
@@ -80,10 +80,10 @@ public class PlayerController : MonoBehaviour
         
 
     }
-    public void RestHealth()
+    public void RestHealth(int newlives)
     {
-        lives = 3;
-        onDeath.Invoke();
+        lives = newlives;
+        onDeath?.Invoke();
     }
     private IEnumerator RestDamageBool()
     {

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494d1f8f364c2af4fb1adff0a515ee07, type: 3}
   m_Name: RocketThrusters 1
   m_EditorClassIdentifier: 
-  ScrapName: Thurster
-  ScrapIcon: {fileID: 1081440320918003093, guid: 7fa985df875dc23488f2f30908118065, type: 3}
+  ScrapName: Plug_Trash
+  ScrapIcon: {fileID: 21300000, guid: bf512068bacfb0a4ab9850bc5ae5e6a8, type: 3}
   ScrapType: 0
-  Fuel: 100
+  Rarity: 0
+  Fuel: 75

@@ -27,4 +27,9 @@ public class FuelScript : MonoBehaviour
     {
         fuel += amount;
     }
+    public void Setfuel(float amount)
+    {
+        fuel = amount;
+        MaxFuel = fuel;
+    }
 }

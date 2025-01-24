@@ -14,10 +14,21 @@ public class FiilUIScript : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         GameManager.instance.PlayerController.onHit += RemoveHeart;
         GameManager.instance.PlayerController.onDeath += DisplayHearts;
+    }
+    private void OnEnable()
+    {
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].SetActive(false);
+        }
+        for (int i = 0; i < GameManager.instance.PlayerController.lives; i++)
+        {
+            images[i].SetActive(true);
+        } 
     }
 
     // Update is called once per frame
@@ -45,9 +56,9 @@ public class FiilUIScript : MonoBehaviour
     }
     private void DisplayHearts()
     {
-        foreach (var image in images)
+        for (int i = 0; i < GameManager.instance.PlayerController.lives; i++)
         {
-            image.SetActive(true);
+            images[i].SetActive(true);
         }
         CalculateFill();
     }
