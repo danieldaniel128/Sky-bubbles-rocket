@@ -311,6 +311,8 @@ MonoBehaviour:
   - {fileID: 6023499331947662103}
   scrollSpeed: 1.1
   canvas: {fileID: 1777063011064583435}
+  _rocketUI: {fileID: 5716991455128818462}
+  _bathUI: {fileID: 6365416218074719409}
 --- !u!1 &1991530646622963696
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,11 +908,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrapPrefab: {fileID: 3322757546140802446, guid: 062c6899673207d4c99350bed60ee741, type: 3}
-  _scrupDataSO:
+  _rocketBodyDataSO:
   - {fileID: 11400000, guid: 4e8295b0ff819864eb72c23a70bab7f7, type: 2}
-  - {fileID: 11400000, guid: 4365ef797cba24a43b7e3ed53dff2623, type: 2}
-  - {fileID: 11400000, guid: c6b996f2ad6d63d4cbed8a1ce05fc029, type: 2}
   - {fileID: 11400000, guid: 6dde72689e6110c42841d85cce40675e, type: 2}
+  - {fileID: 11400000, guid: e86d592c1b59b4f47b694eca068d3240, type: 2}
+  _rocketHeadDataSO:
+  - {fileID: 11400000, guid: 4365ef797cba24a43b7e3ed53dff2623, type: 2}
+  - {fileID: 11400000, guid: d88bc6cd5e253fe47aee094e6522f4d2, type: 2}
+  - {fileID: 11400000, guid: 83ff71790b7246748ae9a2f0d180a108, type: 2}
+  _rocketThrustersDataSO:
+  - {fileID: 11400000, guid: c6b996f2ad6d63d4cbed8a1ce05fc029, type: 2}
+  - {fileID: 11400000, guid: a8a98261a747bbf469d30c788f5f2b29, type: 2}
+  - {fileID: 11400000, guid: ef15eaadb7ae8f244a81b417a71c7d0f, type: 2}
+  _allScrapDataSO: []
   _generatedScrapsPositions:
   - {fileID: 4910675138181471644}
   - {fileID: 3565897559712189433}
@@ -918,6 +928,7 @@ MonoBehaviour:
   - {fileID: 2442526420748472915}
   - {fileID: 5167986367373265026}
   - {fileID: 2214960819673224228}
+  _occupiedPositions: []
   _scrapCollector: {fileID: 6002958510367717002}
   _commonProbability: 0
   _rareProbability: 0

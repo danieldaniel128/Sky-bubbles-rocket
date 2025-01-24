@@ -10,6 +10,9 @@ public class BackgroundScroller : MonoBehaviour
     bool finishedLaunch = false;
     private float screenHeight;
     private Vector2[] originalPositions;
+
+    [SerializeField] GameObject _rocketUI;
+    [SerializeField] GameObject _bathUI;
     private void Start()
     {
         // Get the screen height in pixels based on the canvas scaler
@@ -28,13 +31,15 @@ public class BackgroundScroller : MonoBehaviour
     }
     public void ActivateScrol()
     {
+        _rocketUI.SetActive(false);
         this.enabled = true;
+
     }
     [ContextMenu("DeactivateScrol")]
     public void DeactivateScrol()
     {
         this.enabled = false;
-        backgrounds[0].GetChild(0).gameObject.SetActive(true);
+        _bathUI.SetActive(true);
         ResetBackgroundPositions();
     }
     private void Update()
@@ -61,8 +66,8 @@ public class BackgroundScroller : MonoBehaviour
                 );
                 //is the first background of bath
                 if (!finishedLaunch)
-                { 
-                    backgrounds[i].GetChild(0).gameObject.SetActive(false);
+                {
+                    _bathUI.SetActive(false);
                     finishedLaunch = true;
                 }
             }
