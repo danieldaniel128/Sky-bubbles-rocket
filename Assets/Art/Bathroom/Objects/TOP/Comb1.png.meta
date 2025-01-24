@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: badaa874d5ce9c942b11fe33dc45af44
+guid: 85e5c18d29d08c544885a1ce441ca60a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5988095719024370835
-    second: Shower_Cap_Epic_0
+      213: 1482757880150698053
+    second: Comb1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shower_Cap_Epic_0
+      name: Comb1_0
       rect:
         serializedVersion: 2
-        x: 86
-        y: 127
-        width: 149
-        height: 80
+        x: 80
+        y: 91
+        width: 96
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3942c75845df91350800000000000000
-      internalID: 5988095719024370835
+      spriteID: 5482b4e9f60d39410800000000000000
+      internalID: 1482757880150698053
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Shower_Cap_Epic_0: 5988095719024370835
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

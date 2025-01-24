@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: fd833419670fd564289ab9ed6da989a2
+guid: 561f583dffed5d146ad4ff9f2e979f91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7978173071996504567
-    second: Asteroids_02_0
-  - first:
-      213: -1481215244251103049
-    second: Asteroids_02_1
+      213: 3938961246969335683
+    second: Plunger1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asteroids_02_0
+      name: Plunger1_0
       rect:
         serializedVersion: 2
-        x: 78
-        y: 47
-        width: 112
-        height: 113
+        x: 79
+        y: 79
+        width: 98
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 906bf077cd5d74190800000000000000
-      internalID: -7978173071996504567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asteroids_02_1
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 27
-        width: 148
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b0058a459aa17be0800000000000000
-      internalID: -1481215244251103049
+      spriteID: 38f03a572600aa630800000000000000
+      internalID: 3938961246969335683
       vertices: []
       indices: 
       edges: []

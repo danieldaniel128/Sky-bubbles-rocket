@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: fd833419670fd564289ab9ed6da989a2
+guid: ccfbf3c2ec78507409c6e514c13c972a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7978173071996504567
-    second: Asteroids_02_0
-  - first:
-      213: -1481215244251103049
-    second: Asteroids_02_1
+      213: 7347379639136863589
+    second: SoapBar1Red_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asteroids_02_0
+      name: SoapBar1Red_0
       rect:
         serializedVersion: 2
-        x: 78
+        x: 74
         y: 47
-        width: 112
-        height: 113
+        width: 107
+        height: 165
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 906bf077cd5d74190800000000000000
-      internalID: -7978173071996504567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Asteroids_02_1
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 27
-        width: 148
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b0058a459aa17be0800000000000000
-      internalID: -1481215244251103049
+      spriteID: 565c0bc8ad227f560800000000000000
+      internalID: 7347379639136863589
       vertices: []
       indices: 
       edges: []
