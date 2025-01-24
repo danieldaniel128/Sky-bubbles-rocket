@@ -11,6 +11,12 @@ public class ScrapsSpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] ScrapsCollector _scrapCollector;
+
+    [Header("Probabilities")]
+    [SerializeField,Range(0, 1)] float _commonProbability;
+    [SerializeField, Range(0, 1)] float _rareProbability;
+    [SerializeField, Range(0, 1)] float _epicProbability;
+
     private void Start()
     {
         InitScraps();
