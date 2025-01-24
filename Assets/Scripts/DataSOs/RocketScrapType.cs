@@ -4,3 +4,9 @@
     Body,
     Head,
 }
+public enum RocketScrapRarity
+{
+    Common,
+    Rare,
+    Epic,
+}

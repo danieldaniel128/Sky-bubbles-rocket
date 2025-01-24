@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RocketBody 2
   m_EditorClassIdentifier: 
   ScrapName: BodySquare
-  ScrapIcon: {fileID: -8630923909508717717, guid: 1ab39b178cb9c32419a36726474a5dd6, type: 3}
+  ScrapIcon: {fileID: -816608100, guid: 61550fc76171ab141ae5c0216d225f19, type: 3}
   ScrapType: 1

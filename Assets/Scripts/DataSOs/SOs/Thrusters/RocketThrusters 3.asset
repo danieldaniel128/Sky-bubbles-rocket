@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
-  m_Name: RocketBody 1
+  m_Script: {fileID: 11500000, guid: 494d1f8f364c2af4fb1adff0a515ee07, type: 3}
+  m_Name: RocketThrusters 3
   m_EditorClassIdentifier: 
-  ScrapName: BodySquare
-  ScrapIcon: {fileID: -211803245, guid: 61550fc76171ab141ae5c0216d225f19, type: 3}
-  ScrapType: 1
+  ScrapName: Thurster
+  ScrapIcon: {fileID: 1623211861, guid: 61550fc76171ab141ae5c0216d225f19, type: 3}
+  ScrapType: 0
+  Fuel: 100

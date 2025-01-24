@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 767d7c022a5fdce4c84acd6f7aaff54f
+guid: d432897a12887604fb2452b4a1fc48d4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8840190469128881243
-    second: Bg_Objects_01_0
+      213: 3778570244383199845
+    second: Bubbles_01_0
   - first:
-      213: 311449370232416129
-    second: Bg_Objects_01_1
+      213: -8951489776893758910
+    second: Bubbles_01_1
   - first:
-      213: 4260656398966084388
-    second: Bg_Objects_01_2
+      213: -97803001147305679
+    second: Bubbles_01_2
+  - first:
+      213: -4531293015268832382
+    second: Bubbles_01_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,30 +118,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bg_Objects_01_0
+      name: Bubbles_01_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 27
-        width: 441
-        height: 143
+        x: 7
+        y: 218
+        width: 223
+        height: 229
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ab77cc0b95515580800000000000000
-      internalID: -8840190469128881243
+      spriteID: 56252571e9d207430800000000000000
+      internalID: 3778570244383199845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bg_Objects_01_1
+      name: Bubbles_01_1
       rect:
         serializedVersion: 2
-        x: 448
-        y: 24
-        width: 328
-        height: 584
+        x: 71
+        y: 112
+        width: 94
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 187e8365d8d725400800000000000000
-      internalID: 311449370232416129
+      spriteID: 242f4b5997be5c380800000000000000
+      internalID: -8951489776893758910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bg_Objects_01_2
+      name: Bubbles_01_2
       rect:
         serializedVersion: 2
-        x: 796
-        y: 24
-        width: 623
-        height: 584
+        x: 93
+        y: 47
+        width: 50
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +181,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4235e52cb64e02b30800000000000000
-      internalID: 4260656398966084388
+      spriteID: 131d5aa40b884aef0800000000000000
+      internalID: -97803001147305679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bubbles_01_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 3
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b41bba20d9d11c0800000000000000
+      internalID: -4531293015268832382
       vertices: []
       indices: 
       edges: []
@@ -210,10 +222,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bg_Objects_01_0: -8840190469128881243
-      Bg_Objects_01_1: 311449370232416129
-      Bg_Objects_01_2: 4260656398966084388
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
