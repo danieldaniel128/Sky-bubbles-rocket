@@ -10,7 +10,7 @@ public class FiilUIScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI CoinsText;
     float score;
     [SerializeField] float addition;
-    public List<Image> images = new List<Image>();
+    public List<GameObject> images = new List<GameObject>();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,14 +40,14 @@ public class FiilUIScript : MonoBehaviour
         {
             return;
         }
-        Image image = images[GameManager.instance.PlayerController.lives];
-        image.enabled = false;
+        GameObject image = images[GameManager.instance.PlayerController.lives];
+        image.SetActive(false);
     }
     private void DisplayHearts()
     {
         foreach (var image in images)
         {
-            image.enabled = true;
+            image.SetActive(true);
         }
         CalculateFill();
     }
