@@ -41,12 +41,15 @@ public class GameManager : MonoBehaviour
 
         activeEntity.Clear();
         activeBird.Clear();
+        PlayerController.flashEffect.StopFlash();
 
         ScrapsSpawner.InitScrapsCoro();
     }
     public void Launch()
     {
         InGaqmeobjects.SetActive(true);
+        isGameOver = false;
+        
     }
     public void AddCoins(int amount)
     {

@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 
 public class FlashEffect : MonoBehaviour
 {
@@ -10,11 +9,13 @@ public class FlashEffect : MonoBehaviour
     public float flashDuration = 2f; // Total time for flashing
     public float flashInterval = 0.4f; // Time between each flash
 
+    private bool isFlashing = false; // Tracks if the flash is active
+    private float flashTimer = 0f; // Timer for flashing intervals
+    private float durationTimer = 0f; // Timer for total flash duration
+    private bool useOriginalMaterial = false; // Toggle material state
+
     private void Start()
     {
-        // Get all SpriteRenderer components in this GameObject and its children
-     
-
         // Store the original materials of each SpriteRenderer
         foreach (var sr in spriteRenderers)
         {
@@ -22,33 +23,72 @@ public class FlashEffect : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (GameManager.instance.isGameOver)
+        {
+            Debug.Log("Game Over");
+            StopFlash(); // Stop flashing on game over
+            return;
+        }
+        else if (isFlashing)
+        {
+            HandleFlashing();
+        }
+    }
+
     public void Flash()
     {
         if (spriteRenderers.Count > 0 && whiteFlashMaterial != null)
         {
-            StartCoroutine(FlashCoroutine());
+            isFlashing = true;
+            flashTimer = 0f;
+            durationTimer = 0f;
         }
     }
 
-    private IEnumerator FlashCoroutine()
+    public void StopFlash()
     {
-        float elapsedTime = 0f;
-        bool useOriginalMaterial = false;
+        // Completely stop flashing
+        isFlashing = false;
+        flashTimer = 0f;
+        durationTimer = 0f;
 
-        while (elapsedTime < flashDuration)
+        // Restore the original materials immediately
+        RestoreOriginalMaterials();
+    }
+
+    private void HandleFlashing()
+    {
+        // Update the total duration timer
+        durationTimer += Time.deltaTime;
+
+        // Stop flashing if the total duration exceeds the flash duration
+        if (durationTimer >= flashDuration)
         {
-            // Toggle between flash material and original material for each SpriteRenderer
+            StopFlash();
+            return;
+        }
+
+        // Update the flash interval timer
+        flashTimer += Time.deltaTime;
+
+        // Toggle materials when the interval timer exceeds the flash interval
+        if (flashTimer >= flashInterval)
+        {
+            flashTimer = 0f; // Reset the interval timer
+            useOriginalMaterial = !useOriginalMaterial;
+
+            // Apply the toggled material to all SpriteRenderers
             for (int i = 0; i < spriteRenderers.Count; i++)
             {
                 spriteRenderers[i].material = useOriginalMaterial ? originalMaterials[i] : whiteFlashMaterial;
             }
-
-            useOriginalMaterial = !useOriginalMaterial;
-            elapsedTime += flashInterval;
-
-            yield return new WaitForSeconds(flashInterval);
         }
+    }
 
+    private void RestoreOriginalMaterials()
+    {
         // Ensure all SpriteRenderers return to their original materials
         for (int i = 0; i < spriteRenderers.Count; i++)
         {
