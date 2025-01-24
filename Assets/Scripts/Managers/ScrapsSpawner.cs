@@ -29,6 +29,7 @@ public class ScrapsSpawner : MonoBehaviour
     [SerializeField,Range(0, 1)] float _commonProbability;
     [SerializeField, Range(0, 1)] float _rareProbability;
     [SerializeField, Range(0, 1)] float _epicProbability;
+    [SerializeField, Range(0, 1)] float _legendaryProbability;
 
 
     private void Start()
@@ -75,11 +76,12 @@ public class ScrapsSpawner : MonoBehaviour
         {
             selectedRarity = RocketScrapRarity.Rare;
         }
-        else
+        else if(randomValue <= _commonProbability + _rareProbability + _epicProbability)
         {
             selectedRarity = RocketScrapRarity.Epic;
         }
-
+        else
+            selectedRarity = RocketScrapRarity.Legendary;
         // Filter the scraps by the selected rarity
         List<ScrapDataSO> filteredScraps = fromList.FindAll(scrap => scrap.Rarity == selectedRarity);
 

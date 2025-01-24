@@ -9,4 +9,5 @@ public enum RocketScrapRarity
     Common,
     Rare,
     Epic,
+    Legendary
 }

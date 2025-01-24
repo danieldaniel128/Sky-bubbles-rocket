@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
-  m_Name: Soup1
+  m_Name: toilet1
   m_EditorClassIdentifier: 
-  ScrapName: Soup1
-  ScrapIcon: {fileID: 7347379639136863589, guid: ccfbf3c2ec78507409c6e514c13c972a, type: 3}
+  ScrapName: toilet1
+  ScrapIcon: {fileID: -1763609181279483745, guid: 98adf47f41f832c4db42a4631770202d, type: 3}
   ScrapType: 1
-  Rarity: 0
+  Rarity: 3
