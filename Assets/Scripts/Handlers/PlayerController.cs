@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer head;
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer legs;
-    [SerializeField] FlashEffect flashEffect;
+    public FlashEffect flashEffect;
     [SerializeField] Rigidbody2D rb;
     public FuelScript fuel;
     [SerializeField] float HorizontalSpeed = 5f;

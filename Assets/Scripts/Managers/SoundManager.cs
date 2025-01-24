@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -5,7 +6,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
 
     [Header("Audio Sources")]
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private List<AudioSource> sfxSources= new List<AudioSource>();
     [SerializeField] private AudioSource bgmSource;
 
     [Header("Volume Settings")]
@@ -33,9 +34,18 @@ public class SoundManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         if (clip == null) return;
+        AudioSource source = null;
+        foreach (var item in sfxSources)
+        {
+            if (!item.isPlaying)
+            {
+                source = item;
+                break;
+            }
+        }
+        source.volume = sfxVolume;
+        source.PlayOneShot(clip);
 
-        sfxSource.volume = sfxVolume;
-        sfxSource.PlayOneShot(clip);
     }
 
     /// <summary>
