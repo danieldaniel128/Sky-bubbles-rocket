@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3573c5ec8b64f814c9892696bd925fd9, type: 3}
-  m_Name: RocketHead 2
+  m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
+  m_Name: Shampoo1
   m_EditorClassIdentifier: 
-  ScrapName: 
-  ScrapIcon: {fileID: 7113486693448511334, guid: 69fc005d2e10b354a938224dd8496971, type: 3}
-  ScrapType: 2
+  ScrapName: Shampo
+  ScrapIcon: {fileID: 21300000, guid: b61caf8aa1718694b985261205d4b9cb, type: 3}
+  ScrapType: 1
   Rarity: 1
-  Lives: 3

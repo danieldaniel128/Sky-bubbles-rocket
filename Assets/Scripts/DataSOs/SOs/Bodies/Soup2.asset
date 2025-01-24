@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494d1f8f364c2af4fb1adff0a515ee07, type: 3}
-  m_Name: RocketThrusters 2
+  m_Script: {fileID: 11500000, guid: 8febcfd8a3dbb4f448bfd2eeab56c7c2, type: 3}
+  m_Name: Soup2
   m_EditorClassIdentifier: 
-  ScrapName: Sower_Cap
-  ScrapIcon: {fileID: 21300000, guid: badaa874d5ce9c942b11fe33dc45af44, type: 3}
-  ScrapType: 0
-  Rarity: 1
-  Fuel: 100
+  ScrapName: Soup2
+  ScrapIcon: {fileID: 21300000, guid: ccfbf3c2ec78507409c6e514c13c972a, type: 3}
+  ScrapType: 1
+  Rarity: 0
