@@ -25,6 +25,7 @@ public class FiilUIScript : MonoBehaviour
         score += addition * Time.deltaTime;
         CalculateFill();
         MetersText.text = "Meters Passed: " + (int)score;
+        CoinsText.text = "Coins: " + GameManager.instance.CoinManager.Coins;
 
 
     }

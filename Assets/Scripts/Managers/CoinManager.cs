@@ -3,6 +3,7 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     private int coins;
+    public int Coins => coins;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
