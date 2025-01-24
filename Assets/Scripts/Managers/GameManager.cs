@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public CoinManager CoinManager;
     public List<GameObject> activeEntity = new List<GameObject>();
 
-
+    [SerializeField] GameObject InGaqmeobjects;
+    [SerializeField] BackgroundScroller BackgroundScroller;
     private void Awake()
     {
         if (instance == null)
@@ -32,9 +33,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void LoseHealth()
+    public void LoseGame()
     {
-
+        InGaqmeobjects.SetActive(false);
+        BackgroundScroller.DeactivateScrol();
+    }
+    public void Launch()
+    {
+        InGaqmeobjects.SetActive(true);
     }
     public void AddCoins(int amount)
     {
