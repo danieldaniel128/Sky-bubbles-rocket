@@ -31,7 +31,7 @@ public class FlashEffect : MonoBehaviour
             StopFlash(); // Stop flashing on game over
             return;
         }
-        else if (isFlashing)
+        if (isFlashing)
         {
             HandleFlashing();
         }

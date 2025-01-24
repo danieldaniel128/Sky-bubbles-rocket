@@ -3646,7 +3646,7 @@ MonoBehaviour:
   - {fileID: 703247917}
   whiteFlashMaterial: {fileID: 2100000, guid: edd1748f9ede35e47bf456dc5e40449f, type: 2}
   flashDuration: 2
-  flashInterval: 0.1
+  flashInterval: 0.4
 --- !u!1 &1070054453
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
         activeEntity.Clear();
         activeBird.Clear();
-        PlayerController.flashEffect.StopFlash();
+        //flashEffect.StopFlash();
 
         ScrapsSpawner.InitScrapsCoro();
     }
