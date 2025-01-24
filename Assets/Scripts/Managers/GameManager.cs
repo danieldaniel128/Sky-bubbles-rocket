@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(entity.gameObject);
         }
+        
         activeEntity.Clear();
     }
     public void Launch()

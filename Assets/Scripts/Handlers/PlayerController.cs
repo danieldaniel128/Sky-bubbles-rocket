@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementInput = Vector3.zero; // Tracks movement input
     public int lives;
     public event Action onHit;
+    public event Action onDeath;
     [SerializeField] CameraShake cameraShake;
     [SerializeField] float InvincibilityTime = 1f;
     bool hasBeenHit = false;
@@ -78,6 +79,11 @@ public class PlayerController : MonoBehaviour
         }
         
 
+    }
+    public void RestHealth()
+    {
+        lives = 3;
+        onDeath.Invoke();
     }
     private IEnumerator RestDamageBool()
     {
