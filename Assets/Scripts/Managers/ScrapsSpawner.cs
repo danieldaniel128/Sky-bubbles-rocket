@@ -51,7 +51,7 @@ public class ScrapsSpawner : MonoBehaviour
             ScrapDataSO randomScrapData;
             //removed now and add to occupied.
             _occupiedPositions.Add(scrapsPosition);
-            scrapHandler = Instantiate(_scrapPrefab, scrapsPosition.position, Quaternion.identity, scrapsPosition);
+            scrapHandler = Instantiate(_scrapPrefab, scrapsPosition.position -Vector3.forward*10, Quaternion.identity, scrapsPosition);
             //set random scrap data from datas list
             randomScrapData = GetRandomScrapByRarity(_allScrapDataSO);
             scrapHandler.SetScrap(randomScrapData, scrapsPosition);
@@ -101,7 +101,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomPos = GetRandomPosAndOccupie();
         //removed now and add to occupied.
         _occupiedPositions.Add(randomPos);
-        scrapHandler = Instantiate(_scrapPrefab, randomPos.position, Quaternion.identity, randomPos);
+        scrapHandler = Instantiate(_scrapPrefab, randomPos.position - Vector3.forward * 10, Quaternion.identity, randomPos);
         //set random scrap data from datas list
         randomScrapData = GetRandomScrapByRarity(_rocketBodyDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
@@ -111,7 +111,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomPos = GetRandomPosAndOccupie();
         //removed now and add to occupied.
         _occupiedPositions.Add(randomPos);
-        scrapHandler = Instantiate(_scrapPrefab, randomPos.position, Quaternion.identity, randomPos);
+        scrapHandler = Instantiate(_scrapPrefab, randomPos.position - Vector3.forward * 10, Quaternion.identity, randomPos);
         //set random scrap data from datas list
         randomScrapData = GetRandomScrapByRarity(_rocketHeadDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
@@ -122,7 +122,7 @@ public class ScrapsSpawner : MonoBehaviour
         //
         //removed now and add to occupied.
         _occupiedPositions.Add(randomPos);
-        scrapHandler = Instantiate(_scrapPrefab, randomPos.position, Quaternion.identity, randomPos);
+        scrapHandler = Instantiate(_scrapPrefab, randomPos.position - Vector3.forward * 10, Quaternion.identity, randomPos);
         //set random scrap data from datas list
         randomScrapData = GetRandomScrapByRarity(_rocketThrustersDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);

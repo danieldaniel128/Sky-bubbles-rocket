@@ -11,6 +11,9 @@ public class BackgroundScroller : MonoBehaviour
     private float screenHeight;
     private Vector2[] originalPositions;
 
+    [SerializeField] private List<Sprite> _propsForBackgroundSprites; // List of background UI elements
+    [SerializeField] private List<Transform> _propsForBackgroundPositions; // List of background UI elements
+
     [SerializeField] GameObject _rocketUI;
     [SerializeField] GameObject _bathUI;
     private void Start()
@@ -42,6 +45,7 @@ public class BackgroundScroller : MonoBehaviour
         _bathUI.SetActive(true);
         _rocketUI.SetActive(true);
         ResetBackgroundPositions();
+        
     }
     private void Update()
     {
@@ -65,11 +69,16 @@ public class BackgroundScroller : MonoBehaviour
                     highestBackground.anchoredPosition.x,
                     highestBackground.anchoredPosition.y + backgroundHeight
                 );
+                //here is where the top is moved to
+                // Assign random props to the background that is now on top
+                AssignRandomPropsToBackground();
+
                 //is the first background of bath
                 if (!finishedLaunch)
                 {
                     _bathUI.SetActive(false);
                     finishedLaunch = true;
+                    
                 }
             }
             // Move each background down in pixels
@@ -78,7 +87,32 @@ public class BackgroundScroller : MonoBehaviour
             // Get the actual height of the background
         }
     }
+    private void AssignRandomPropsToBackground()
+    {
+        if (_propsForBackgroundSprites.Count == 0 || _propsForBackgroundPositions.Count == 0)
+        {
+            Debug.LogWarning("No props or positions available for assignment.");
+            return;
+        }
 
+        foreach (var propPosition in _propsForBackgroundPositions)
+        {
+            // Select a random sprite
+            Sprite randomSprite = _propsForBackgroundSprites[Random.Range(0, _propsForBackgroundSprites.Count)];
+
+            // Assign the random sprite to the image component
+            Image imageComponent = propPosition.GetComponent<Image>();
+            if (imageComponent != null)
+            {
+                imageComponent.sprite = randomSprite;
+                imageComponent.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning($"No Image component found on {propPosition.name}");
+            }
+        }
+    }
     private RectTransform GetHighestBackground()
     {
         RectTransform highest = backgrounds[0];
