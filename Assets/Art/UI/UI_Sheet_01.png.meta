@@ -200,10 +200,10 @@ TextureImporter:
       name: UI_Sheet_01_2
       rect:
         serializedVersion: 2
-        x: 1583
-        y: 442
-        width: 757
-        height: 606
+        x: 1611
+        y: 404
+        width: 706
+        height: 616
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,6 +504,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Sheet_01_16
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 38
+        width: 194
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d57bc1bdfe2d194b962ea39cf3bb037
+      internalID: 903927406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Sheet_01_17
+      rect:
+        serializedVersion: 2
+        x: 2225
+        y: 130
+        width: 223
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 770bf1fb37e916c4f9085f5e457f32a8
+      internalID: 298731407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Sheet_01_18
+      rect:
+        serializedVersion: 2
+        x: 2241
+        y: 359
+        width: 212
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c9867d0737f714099a16d7cf7b0d60
+      internalID: -440287749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -526,6 +592,9 @@ TextureImporter:
       UI_Sheet_01_13: 2082277462
       UI_Sheet_01_14: 1163408507
       UI_Sheet_01_15: 1550756400
+      UI_Sheet_01_16: 903927406
+      UI_Sheet_01_17: 298731407
+      UI_Sheet_01_18: -440287749
       UI_Sheet_01_2: 4173410094644734768
       UI_Sheet_01_3: -5069540800894968830
       UI_Sheet_01_4: 5755325820307361738

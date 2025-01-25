@@ -1,28 +1,13 @@
 fileFormatVersion: 2
-guid: 0626f80a79dd4e045a9ba72bc10d21d5
+guid: 730ee55bf40b6d144990a992620b10ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8896112859973558675
-    second: Particles_Pop_0
+      213: -4611775535443943888
+    second: Projectile_SHeet_0
   - first:
-      213: -412102248409774405
-    second: Particles_Pop_1
-  - first:
-      213: 6637584045066598269
-    second: Particles_Pop_2
-  - first:
-      213: 2219781790016460131
-    second: Particles_Pop_3
-  - first:
-      213: -100463243663947129
-    second: Particles_Pop_4
-  - first:
-      213: -7739049753312340970
-    second: Particles_Pop_5
-  - first:
-      213: -6548342777736881790
-    second: Particles_Pop_6
+      213: -4052770852552932299
+    second: Projectile_SHeet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +51,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -144,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Particles_Pop_0
+      name: Projectile_SHeet_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 285
-        width: 124
-        height: 213
+        x: 6
+        y: 16
+        width: 97
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39122843387557b70800000000000000
-      internalID: 8896112859973558675
+      spriteID: 03ed602b59eafffb0800000000000000
+      internalID: -4611775535443943888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particles_Pop_1
+      name: Projectile_SHeet_1
       rect:
         serializedVersion: 2
-        x: 229
-        y: 275
-        width: 121
-        height: 217
+        x: 126
+        y: 27
+        width: 50
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,118 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb64560403be74af0800000000000000
-      internalID: -412102248409774405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Particles_Pop_2
-      rect:
-        serializedVersion: 2
-        x: 373
-        y: 268
-        width: 84
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d77bef4858f6d1c50800000000000000
-      internalID: 6637584045066598269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Particles_Pop_3
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 114
-        width: 90
-        height: 149
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 365dfc0f6cf3ece10800000000000000
-      internalID: 2219781790016460131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Particles_Pop_4
-      rect:
-        serializedVersion: 2
-        x: 229
-        y: 44
-        width: 121
-        height: 217
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78a4d6056351b9ef0800000000000000
-      internalID: -100463243663947129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Particles_Pop_5
-      rect:
-        serializedVersion: 2
-        x: 373
-        y: 96
-        width: 84
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6145ebaa04f599490800000000000000
-      internalID: -7739049753312340970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Particles_Pop_6
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 6
-        width: 58
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2899f7130fc9f15a0800000000000000
-      internalID: -6548342777736881790
+      spriteID: 5348681d16aa1c7c0800000000000000
+      internalID: -4052770852552932299
       vertices: []
       indices: 
       edges: []
@@ -310,14 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Particles_Pop_0: 8896112859973558675
-      Particles_Pop_1: -412102248409774405
-      Particles_Pop_2: 6637584045066598269
-      Particles_Pop_3: 2219781790016460131
-      Particles_Pop_4: -100463243663947129
-      Particles_Pop_5: -7739049753312340970
-      Particles_Pop_6: -6548342777736881790
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
