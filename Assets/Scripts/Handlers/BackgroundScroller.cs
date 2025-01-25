@@ -12,10 +12,11 @@ public class BackgroundScroller : MonoBehaviour
     private Vector2[] originalPositions;
 
     [SerializeField] private List<Sprite> _propsForBackgroundSprites; // List of background UI elements
-    [SerializeField] private List<Transform> _propsForBackgroundPositions; // List of background UI elements
-
+    [SerializeField] private List<Image> _propsForBackgroundPositions; // List of background UI elements
+    [SerializeField] RectTransform _propsContainer;
     [SerializeField] GameObject _rocketUI;
     [SerializeField] GameObject _bathUI;
+    RectTransform highestBackground;
     private void Start()
     {
         // Get the screen height in pixels based on the canvas scaler
@@ -45,6 +46,8 @@ public class BackgroundScroller : MonoBehaviour
         _bathUI.SetActive(true);
         _rocketUI.SetActive(true);
         ResetBackgroundPositions();
+
+
         
     }
     private void Update()
@@ -52,6 +55,7 @@ public class BackgroundScroller : MonoBehaviour
         ScrollBackgrounds();
     }
 
+    int passedTwice = 1; 
     private void ScrollBackgrounds()
     {
         for (int i = 0; i < backgrounds.Count; i++)
@@ -62,7 +66,7 @@ public class BackgroundScroller : MonoBehaviour
             if (backgrounds[i].anchoredPosition.y < -backgroundHeight)
             {
                 // Find the highest background currently
-                RectTransform highestBackground = GetHighestBackground();
+                highestBackground = GetHighestBackground();
 
                 // Move the current background above the highest one precisely
                 backgrounds[i].anchoredPosition = new Vector2(
@@ -71,7 +75,12 @@ public class BackgroundScroller : MonoBehaviour
                 );
                 //here is where the top is moved to
                 // Assign random props to the background that is now on top
-                AssignRandomPropsToBackground();
+                if(passedTwice % 4 == 0)
+                {
+                    AssignRandomPropsToBackground();
+                    passedTwice = 1;
+                    Debug.Log("random prop now");
+                }
 
                 //is the first background of bath
                 if (!finishedLaunch)
@@ -80,6 +89,7 @@ public class BackgroundScroller : MonoBehaviour
                     finishedLaunch = true;
                     
                 }
+                passedTwice++;
             }
             // Move each background down in pixels
             backgrounds[i].anchoredPosition += Vector2.down * scrollSpeed *1080 * Time.deltaTime;
@@ -101,16 +111,41 @@ public class BackgroundScroller : MonoBehaviour
             Sprite randomSprite = _propsForBackgroundSprites[Random.Range(0, _propsForBackgroundSprites.Count)];
 
             // Assign the random sprite to the image component
-            Image imageComponent = propPosition.GetComponent<Image>();
+            Image imageComponent = propPosition;
             if (imageComponent != null)
             {
+                // Set the highestBackground as the parent
+                _propsContainer.SetParent(highestBackground);
+
+                // Center the image on the Y-axis
+                RectTransform imageRectTransform = imageComponent.GetComponent<RectTransform>();
+                if (imageRectTransform != null)
+                {
+                    // Reset position relative to the parent
+                    imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, 0);
+                    imageRectTransform.localScale = Vector3.one; // Reset scale in case it's altered
+                }
+
+                // Assign the random sprite and set the native size
                 imageComponent.sprite = randomSprite;
-                imageComponent.gameObject.SetActive(true);
+                imageComponent.SetNativeSize();
+
+                Debug.Log($"Assigned sprite {randomSprite.name} to {imageComponent.name} and centered it on Y-axis.");
             }
             else
             {
                 Debug.LogWarning($"No Image component found on {propPosition.name}");
             }
+
+        }
+        _propsContainer.SetParent(highestBackground);
+
+        // Center the image on the Y-axis
+        if (_propsContainer != null)
+        {
+            // Reset position relative to the parent
+            _propsContainer.anchoredPosition = new Vector2(_propsContainer.anchoredPosition.x, 0);
+            _propsContainer.localScale = Vector3.one; // Reset scale in case it's altered
         }
     }
     private RectTransform GetHighestBackground()
@@ -132,6 +167,31 @@ public class BackgroundScroller : MonoBehaviour
         for (int i = 0; i < backgrounds.Count; i++)
         {
             backgrounds[i].anchoredPosition = originalPositions[i];
+        }
+        //reset props positions
+        foreach (var propPosition in _propsForBackgroundPositions)
+        {
+            // Assign the random sprite to the image component
+            Image imageComponent = propPosition;
+            if (imageComponent != null)
+            {
+                // Set the highestBackground as the parent
+                imageComponent.transform.SetParent(backgrounds[1]);
+
+                // Center the image on the Y-axis
+                RectTransform imageRectTransform = imageComponent.GetComponent<RectTransform>();
+                if (imageRectTransform != null)
+                {
+                    // Reset position relative to the parent
+                    imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, 0);
+                    imageRectTransform.localScale = Vector3.one; // Reset scale in case it's altered
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"No Image component found on {propPosition.name}");
+            }
+
         }
     }
 }
