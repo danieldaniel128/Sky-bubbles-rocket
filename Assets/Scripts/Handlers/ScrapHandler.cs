@@ -65,6 +65,7 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragged = true;
+        this.ScrapsCollector.StartCollectProcess(this);
         // Calculate the offset between the mouse pointer and the object's position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             parentRect, // Use the parent's RectTransform
@@ -77,7 +78,6 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (_rectTransform != null && canvas != null)
         {
-            this.ScrapsCollector.StartCollectProcess(this);
             Vector2 localMousePosition;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 parentRect, // Use the parent's RectTransform

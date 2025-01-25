@@ -149,6 +149,7 @@ public class ScrapsSpawner : MonoBehaviour
     public void InitScrapsCoro() 
     {
         StartCoroutine(CreateNewScraps());
+        _scrapCollector.ResetCollectingImages();
     }
     private void ClearDataFromLastGame()
     {

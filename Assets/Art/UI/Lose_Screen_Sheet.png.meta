@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lose_Screen_Sheet_0: 2399535949266879291
+      Lose_Screen_Sheet_1: 4794203453908253455
+      Lose_Screen_Sheet_2: -4439244507021618205
+      Lose_Screen_Sheet_3: 564367925587554341
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -122,6 +122,19 @@ public class ScrapsCollector : MonoBehaviour
                 break;
         }
     }
+    public void ResetCollectingImages()
+    {
+        _body.sprite = _originalBody;
+        _body.SetNativeSize();
+        _thrusters.sprite = _originalThrusters;
+        _thrusters.SetNativeSize();
+        _head.sprite = _originalHead;
+        _head.SetNativeSize();
+        _head.enabled = true;
+        _thrusters.enabled = true;
+        _body.enabled = true;
+    }
+
     private void HandleSnapOrRelease(ScrapHandler collectedScrap, ref ScrapHandler collectedSlot, Vector3 targetPos, float snapOffset)
     {
         // Calculate the distance between the collected scrap and the target position
@@ -130,7 +143,7 @@ public class ScrapsCollector : MonoBehaviour
             new Vector2(targetPos.x, targetPos.y)
         );
         Debug.Log($"<color=green>distanced ended drop: {distance}</color>");
-        if (distance <= snapOffset)
+        if (distance <= snapOffset && collectedSlot == null)
         {
             // Snap to target position
             collectedScrap.transform.position = targetPos;
@@ -152,7 +165,6 @@ public class ScrapsCollector : MonoBehaviour
             collectedScrap.transform.parent.GetComponent<Image>().enabled = true;
             // Release the scrap
             ReleaseFromCollected(collectedScrap, ref collectedSlot);
-            EndCollectProcess(collectedScrap);
             Debug.Log($"<color=yellow>{collectedScrap.name} released from {targetPos}</color>");
         }
     }
@@ -168,8 +180,13 @@ public class ScrapsCollector : MonoBehaviour
     {
         releasedCollectedScrap.transform.position = releasedCollectedScrap.ScrapCreatedPosParent.position - Vector3.forward * 10;
         releasedCollectedScrap.transform.SetParent(releasedCollectedScrap.ScrapCreatedPosParent);
-        collectedScrap = null;
-        _launchButton.SetActive(false);
+        //clear only if it droped out from rocket body. if its dragged scrap.
+        if (releasedCollectedScrap == collectedScrap)
+        {
+            collectedScrap = null;
+            _launchButton.SetActive(false);
+        }
+        EndCollectProcess(releasedCollectedScrap);
         Debug.Log($"<color=red>Released Scrap {releasedCollectedScrap.name}</color>");
         Debug.Log($"<color=red>Released Scrap new parent {releasedCollectedScrap.ScrapCreatedPosParent.name}</color>");
     }
