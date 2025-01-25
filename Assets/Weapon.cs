@@ -6,14 +6,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] float bulletSpeed = 10f;
     [SerializeField] int bulletDamage = 10;
-    [SerializeField] int MaxAmmoCapacity = 3;
     [SerializeField] int AmmoCapacity = 3;
-    public int MaxAmmocapacity => MaxAmmoCapacity; // Getter for Max Ammo Capacity
+    public int MaxAmmocapacity = 3; // Getter for Max Ammo Capacity
     public int Ammocapacity => AmmoCapacity;       // Getter for Current Ammo Capacity
 
     [SerializeField] float bulletRegenTime = 2f; // Time to regenerate one bullet
     private float regenTimer = 0f;
-
+    private void OnEnable()
+    {
+        AmmoCapacity = MaxAmmocapacity;
+    }
     void Update()
     {
         // Check for shooting input
@@ -54,7 +56,7 @@ public class Weapon : MonoBehaviour
     private void RegenBullet()
     {
         // Only regenerate if ammo is below the max capacity
-        if (AmmoCapacity < MaxAmmoCapacity)
+        if (AmmoCapacity < MaxAmmocapacity)
         {
             regenTimer += Time.deltaTime;
 

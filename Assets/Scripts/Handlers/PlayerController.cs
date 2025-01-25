@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CameraShake cameraShake;
     [SerializeField] float InvincibilityTime = 1f;
     bool hasBeenHit = false;
+    public Weapon weapon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()

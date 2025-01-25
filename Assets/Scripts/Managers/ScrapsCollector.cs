@@ -221,6 +221,7 @@ public class ScrapsCollector : MonoBehaviour
             GameManager.instance.PlayerController.SetParts(_collectedHead._scrapSprite, _collectedBody._scrapSprite, _collectedThrusters._scrapSprite);
             GameManager.instance.PlayerController.RestHealth((_collectedHead.ScrupDataSO as RocketHead).Lives);
             GameManager.instance.PlayerController.fuel.Setfuel((_collectedThrusters.ScrupDataSO as RocketThrusters).Fuel);
+            GameManager.instance.PlayerController.weapon.MaxAmmocapacity = ((_collectedBody.ScrupDataSO as RocketBody).AttackAmount);
         }
     }
     private void OnEnable()
