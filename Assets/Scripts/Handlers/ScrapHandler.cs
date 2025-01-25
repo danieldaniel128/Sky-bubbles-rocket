@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,6 +24,7 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private RectTransform parentRect;
     bool isDragged = false;
     public Transform ScrapCreatedPosParent { get; set; }
+    [SerializeField] TextMeshProUGUI HoverStats;
     public Sprite _scrapSprite
     {
         get
@@ -105,32 +108,81 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        HoverStats.gameObject.SetActive(true);
         ChangeMaterial();
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (_scrapImage != null)
+        {
             _scrapImage.material = null;
+            HoverStats.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeMaterial()
     {
         if (_scrapImage != null && _crupDataSO != null)
         {
+            Color materialColor = Color.white;
                 switch (_crupDataSO.Rarity)
                 {
                     case RocketScrapRarity.Common:
                         _scrapImage.material = CommonMaterial;
+                        materialColor = _scrapImage.material.GetColor("_Color");
+                        HoverStats.color = materialColor;
+                        ChangeText();
+                        HoverStats.text = HoverStats.text + $"+";
                         break;
                     case RocketScrapRarity.Rare:
-                    _scrapImage.material = RareMaterial;
-                        break;
+                        _scrapImage.material = RareMaterial;
+                        materialColor = _scrapImage.material.GetColor("_Color");
+                        HoverStats.color = materialColor;
+                        ChangeText();
+                        HoverStats.text = HoverStats.text + $"++";
+                    break;
                     case RocketScrapRarity.Epic:
                         _scrapImage.material = EpicMaterial;
+                        materialColor = _scrapImage.material.GetColor("_Color");
+                        HoverStats.color = materialColor;
+                        ChangeText();
+                        HoverStats.text = HoverStats.text + $"+++";
+                        break;
+                    case RocketScrapRarity.Legendary:
+                        _scrapImage.material = LegendaryMaterial;
+                        materialColor = _scrapImage.material.GetColor("_Color");
+                        HoverStats.color = materialColor;
+                        ChangeText();
+                        HoverStats.text = HoverStats.text + $"++++";
                         break;
                     default:
-                        break;
+                            break;
                 }
+            Debug.Log($"Material changed to {_crupDataSO.Rarity}");
+        }
+        else
+        {
+            Debug.LogWarning("UI Image or Material is not assigned!");
+        }
+    }
+    public void ChangeText()
+    {
+        if (_scrapImage != null && _crupDataSO != null)
+        {
+            switch (_crupDataSO.ScrapType)
+            {
+                case RocketScrapType.Body:
+                    HoverStats.text = $"Attack";
+                    break;
+                case RocketScrapType.Thrusters:
+                    HoverStats.text = "Fuel";
+                    break;
+                case RocketScrapType.Head:
+                    HoverStats.text = $"Lives";
+                    break;
+                default:
+                    break;
+            }
             Debug.Log($"Material changed to {_crupDataSO.Rarity}");
         }
         else
