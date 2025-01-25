@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] Button fuelButton;
@@ -10,6 +11,7 @@ public class ShopManager : MonoBehaviour
     [Header("Spawners")]
     [SerializeField] BubbleSpawner bubbleSpawner;
     [SerializeField] CoinSpawner coinSpawner;
+    [SerializeField] ScrapsSpawner scrapsSpawner;
     [SerializeField] TextMeshProUGUI fuelCostText;
     [SerializeField] TextMeshProUGUI coinCostText;
     [SerializeField] TextMeshProUGUI rarityCostText;
@@ -23,10 +25,25 @@ public class ShopManager : MonoBehaviour
     {
         fuelButton.onClick.AddListener(() => FuelIncreaseButton());
         coinButton.onClick.AddListener(() => CoinIncreaseButton());
+        RarityButton.onClick.AddListener(() => IncreaseRarity());
     }
-
-    void FuelIncreaseButton()
+    void IncreaseRarity()
     {
+        if (GameManager.instance.CoinManager.Coins >= rarityCost)
+        {
+            GameManager.instance.RemoveCoins((int)rarityCost);
+            scrapsSpawner.UpgradeRarity(RarityButton);
+            rarityCost *= CostIncrease;
+            rarityCost = Mathf.Round(rarityCost);
+            rarityCostText.text = rarityCost.ToString();
+        }
+        else
+        {
+            Debug.Log("Not Enough cash");
+        }
+    }
+        void FuelIncreaseButton() {
+    
         if (GameManager.instance.CoinManager.Coins>= fuelCost)
         {
             GameManager.instance.RemoveCoins((int)fuelCost);

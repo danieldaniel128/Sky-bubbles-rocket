@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScrapsSpawner : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class ScrapsSpawner : MonoBehaviour
     [SerializeField, Range(0, 1)] float _rareProbability;
     [SerializeField, Range(0, 1)] float _epicProbability;
     [SerializeField, Range(0, 1)] float _legendaryProbability;
-
+    private int upgradeCount;
 
     private void Start()
     {
@@ -167,5 +168,34 @@ public class ScrapsSpawner : MonoBehaviour
         yield return new WaitForEndOfFrame(); // Wait for destruction to complete
         yield return new WaitForSeconds(0.1f);
         InitScraps();
+    }
+
+    public void UpgradeRarity(Button upgradeRarity)
+    {
+        upgradeCount++;
+        switch (upgradeCount)
+        {
+            case 1:
+                _commonProbability = 0.6f;
+                _rareProbability = 0.3f;
+                _epicProbability = 0.08f;
+                _legendaryProbability = 0.02f;
+                break;
+            case 2:
+                _commonProbability = 0.45f;
+                _rareProbability = 0.4f;
+                _epicProbability = 0.1f;
+                _legendaryProbability = 0.05f;
+                break;
+            case 3:
+                _commonProbability = 0.25f;
+                _rareProbability = 0.4f;
+                _epicProbability = 0.2f;
+                _legendaryProbability = 0.15f;
+                break;
+            default:
+                upgradeRarity.interactable = false;
+                break;
+        }
     }
 }

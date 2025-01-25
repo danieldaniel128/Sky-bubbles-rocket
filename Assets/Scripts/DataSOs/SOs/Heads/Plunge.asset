@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3573c5ec8b64f814c9892696bd925fd9, type: 3}
-  m_Name: ShowerCap
+  m_Name: Plunge
   m_EditorClassIdentifier: 
-  ScrapName: ShowerCap
-  ScrapIcon: {fileID: -8703186793369667670, guid: 58ad4cc1452afc546b42843883e2f2ef, type: 3}
+  ScrapName: Plunge
+  ScrapIcon: {fileID: 3938961246969335683, guid: 561f583dffed5d146ad4ff9f2e979f91, type: 3}
   ScrapType: 2
   Rarity: 1
   Lives: 3

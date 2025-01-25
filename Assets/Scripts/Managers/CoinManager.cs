@@ -7,7 +7,7 @@ public class CoinManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        coins = 50;
+        coins = 500;
     }
 
     // Update is called once per frame

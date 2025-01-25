@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer head;
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer legs;
+
+    [SerializeField] GameObject particleEffect;
     public FlashEffect flashEffect;
     [SerializeField] Rigidbody2D rb;
     public FuelScript fuel;
@@ -97,6 +99,25 @@ public class PlayerController : MonoBehaviour
         this.head.sprite = head;
         this.body.sprite = body;
         this.legs.sprite = legs;
+    }
+    public void UpdateTintMaterialSprites()
+    {
+        this.head.material.mainTexture = head.sprite.texture;
+        this.body.material.mainTexture = body.sprite.texture;
+        this.legs.material.mainTexture = legs.sprite.texture;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.attachedRigidbody != null && collision.attachedRigidbody.gameObject.CompareTag("Obstacle"))
+            {
+                // Get the point of impact
+                Vector3 impactPoint = collision.ClosestPoint(transform.position);
 
+                // Instantiate the particle effect at the impact point
+                Instantiate(particleEffect, impactPoint, Quaternion.identity);
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ public class FlashEffect : MonoBehaviour
             StopFlash(); // Stop flashing on game over
             return;
         }
-        else if (isFlashing)
+        if (isFlashing)
         {
             HandleFlashing();
         }
@@ -77,13 +77,15 @@ public class FlashEffect : MonoBehaviour
         if (flashTimer >= flashInterval)
         {
             flashTimer = 0f; // Reset the interval timer
-            useOriginalMaterial = !useOriginalMaterial;
 
             // Apply the toggled material to all SpriteRenderers
             for (int i = 0; i < spriteRenderers.Count; i++)
             {
                 spriteRenderers[i].material = useOriginalMaterial ? originalMaterials[i] : whiteFlashMaterial;
+                if (!useOriginalMaterial)
+                    GameManager.instance.PlayerController.UpdateTintMaterialSprites();
             }
+            useOriginalMaterial = !useOriginalMaterial;
         }
     }
 

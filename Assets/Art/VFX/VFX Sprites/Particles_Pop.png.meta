@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c7ff62cbda071cc42a0b4ffd9b92e882
+guid: 0626f80a79dd4e045a9ba72bc10d21d5
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -66,7 +66,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -116,19 +116,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -310,14 +297,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Particles_Pop_0: 8896112859973558675
-      Particles_Pop_1: -412102248409774405
-      Particles_Pop_2: 6637584045066598269
-      Particles_Pop_3: 2219781790016460131
-      Particles_Pop_4: -100463243663947129
-      Particles_Pop_5: -7739049753312340970
-      Particles_Pop_6: -6548342777736881790
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
