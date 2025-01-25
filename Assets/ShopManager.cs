@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI fuelCostText;
     [SerializeField] TextMeshProUGUI coinCostText;
     [SerializeField] TextMeshProUGUI rarityCostText;
+    [SerializeField] TextMeshProUGUI coins;
     int numberOfFuelPurchese = 0;
     private float fuelCost = 20;
     private float coinCost = 20;
@@ -26,6 +27,7 @@ public class ShopManager : MonoBehaviour
         fuelButton.onClick.AddListener(() => FuelIncreaseButton());
         coinButton.onClick.AddListener(() => CoinIncreaseButton());
         RarityButton.onClick.AddListener(() => IncreaseRarity());
+
     }
     void IncreaseRarity()
     {
@@ -78,5 +80,13 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         
+    }
+   public void UpdateCoin()
+    {
+        coins.text = GameManager.instance.CoinManager.Coins.ToString();
+    }
+    private void OnEnable()
+    {
+        coins.text =  GameManager.instance.CoinManager.Coins.ToString();
     }
 }
