@@ -75,7 +75,7 @@ public class ObstacleSpawner : MonoBehaviour
         // Spawn the obstacle if a valid position is found
         if (attempts < 10)
         {
-            GameObject game = Instantiate(obstacle, spawnPosition, Quaternion.identity);
+            GameObject game = Instantiate(obstacle, spawnPosition, Quaternion.identity,transform);
             GameManager.instance.activeEntity.Add(game);
         }
     }

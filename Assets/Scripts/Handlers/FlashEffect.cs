@@ -31,7 +31,7 @@ public class FlashEffect : MonoBehaviour
             StopFlash(); // Stop flashing on game over
             return;
         }
-        if (isFlashing)
+        if (isFlashing && !GameManager.instance.isGameOver)
         {
             HandleFlashing();
         }
@@ -60,6 +60,7 @@ public class FlashEffect : MonoBehaviour
 
     private void HandleFlashing()
     {
+       
         // Update the total duration timer
         durationTimer += Time.deltaTime;
 
@@ -76,11 +77,12 @@ public class FlashEffect : MonoBehaviour
         // Toggle materials when the interval timer exceeds the flash interval
         if (flashTimer >= flashInterval)
         {
+
             flashTimer = 0f; // Reset the interval timer
 
             // Apply the toggled material to all SpriteRenderers
             for (int i = 0; i < spriteRenderers.Count; i++)
-            {
+            { 
                 spriteRenderers[i].material = useOriginalMaterial ? originalMaterials[i] : whiteFlashMaterial;
                 if (!useOriginalMaterial)
                     GameManager.instance.PlayerController.UpdateTintMaterialSprites();

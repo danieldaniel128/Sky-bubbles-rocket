@@ -43,6 +43,7 @@ public class Bubble : MonoBehaviour
                 if (collision.attachedRigidbody.TryGetComponent(out PlayerController player))
                 {
                    player.ReFuel(10);
+                    GameManager.instance.AddBubblesPopped();
                     SoundManager.Instance.PlaySFX(popSound);    
                     Destroy(gameObject);
 

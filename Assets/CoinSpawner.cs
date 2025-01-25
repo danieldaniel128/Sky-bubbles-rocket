@@ -75,7 +75,7 @@ public class CoinSpawner : MonoBehaviour
         // Spawn the coin if a valid position is found
         if (attempts < 10)
         {
-            GameObject game = Instantiate(coin, spawnPosition, Quaternion.identity);
+            GameObject game = Instantiate(coin, spawnPosition, Quaternion.identity, transform);
             GameManager.instance.activeEntity.Add(game);
         }
     }

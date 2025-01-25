@@ -41,6 +41,10 @@ public class FiilUIScript : MonoBehaviour
 
 
     }
+    public void RestMeters()
+    {
+        score = 0;
+    }
     void CalculateFill()
     {
         fillFuel.fillAmount = GameManager.instance.PlayerController.fuel.Fuel / GameManager.instance.PlayerController.fuel.MaxFuel;
@@ -61,5 +65,9 @@ public class FiilUIScript : MonoBehaviour
             images[i].SetActive(true);
         }
         CalculateFill();
+    }
+    public float getScore()
+    {
+        return score;
     }
 }

@@ -44,7 +44,7 @@ public class CoinScript : MonoBehaviour
                 if (collision.attachedRigidbody.TryGetComponent(out PlayerController player))
                 {
                     GameManager.instance.AddCoins(1);
-                   
+                   GameManager.instance.AddCoinsCollected();
                     Destroy(gameObject);
 
                 }

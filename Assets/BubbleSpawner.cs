@@ -11,7 +11,7 @@ public class BubbleSpawner : MonoBehaviour
     [SerializeField] float minYBuffer = 2f; // Minimum buffer for Y spawning
     [SerializeField] float maxYBuffer = 4f; // Maximum buffer for Y spawning
     [SerializeField] float minSpawnDistance = 1f; // Minimum distance between entities
-
+    
     private Camera mainCamera;
     private float spawnTimer = 0f; // Timer to track spawn intervals
    
@@ -76,7 +76,7 @@ public class BubbleSpawner : MonoBehaviour
         // Spawn the bubble if a valid position is found
         if (attempts < 10)
         {
-            GameObject bubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
+            GameObject bubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity,transform);
             GameManager.instance.activeEntity.Add(bubble);
         }
     }
