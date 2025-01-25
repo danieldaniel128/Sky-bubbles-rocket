@@ -3,15 +3,23 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ScrapHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
+public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] Image _scrapImage;
     [SerializeField] ScrapDataSO _crupDataSO;
+
+
     [SerializeField] private Material CommonMaterial;
     [SerializeField] private Material RareMaterial;
     [SerializeField] private Material EpicMaterial;
     [SerializeField] private Material LegendaryMaterial;
-    
+    [Header("for readonly")]
+    [SerializeField] RectTransform _rectTransform;
+    [SerializeField] private Canvas canvas;
+    public ScrapsCollector ScrapsCollector;
+    private Vector2 pointerOffset; // Offset between the mouse click and the object's position
+    private RectTransform parentRect;
+    bool isDragged = false;
     public Transform ScrapCreatedPosParent { get; set; }
     public Sprite _scrapSprite
     {
@@ -27,16 +35,16 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     public RocketScrapType ScrapType { get; private set; }
     //events
     public Action<ScrapHandler> OnScrapCollected;
+    
     public void SetScrap(ScrapDataSO scrapDataSO,Transform scrapParent)
     {
         ScrapCreatedPosParent = scrapParent;
         SetScrapData(scrapDataSO);
+        _rectTransform = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
+        parentRect = scrapParent as RectTransform;
     }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        OnScrapCollected?.Invoke(this);
-        Debug.Log($"<color=blue>clicked {gameObject.name}</color>");
-    }
+    
 
     private void SetScrapData(ScrapDataSO scrapDataSO)
     {
@@ -53,25 +61,55 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
         _scrapImage.sprite = scrapSprite;
         _scrapImage.SetNativeSize();
     }
-    private void OnApplicationQuit()
+    
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        OnScrapCollected = null;
+        isDragged = true;
+        // Calculate the offset between the mouse pointer and the object's position
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRect, // Use the parent's RectTransform
+            eventData.position,
+            eventData.pressEventCamera, // Pass the camera for Screen Space - Camera mode
+            out pointerOffset
+        );
     }
-    private void OnDestroy()
+    public void OnDrag(PointerEventData eventData)
     {
-        OnScrapCollected = null;
-    }
+        if (_rectTransform != null && canvas != null)
+        {
+            this.ScrapsCollector.StartCollectProcess(this);
+            Vector2 localMousePosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                parentRect, // Use the parent's RectTransform
+                eventData.position,
+                eventData.pressEventCamera, // Pass the camera for Screen Space - Camera mode
+                out localMousePosition
+            );
 
+            // Apply the offset to the position
+            _rectTransform.anchoredPosition = localMousePosition - pointerOffset;
+        }
+
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (isDragged)
+        {
+            OnScrapCollected?.Invoke(this);
+            isDragged = false;
+            Debug.Log($"<color=blue>eneded drop {gameObject.name}</color>");
+        }
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ChangeMaterial();
+    }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (_scrapImage != null)
             _scrapImage.material = null;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        ChangeMaterial();
-    }
     public void ChangeMaterial()
     {
         if (_scrapImage != null && _crupDataSO != null)
@@ -97,4 +135,13 @@ public class ScrapHandler : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
             Debug.LogWarning("UI Image or Material is not assigned!");
         }
     }
+    private void OnApplicationQuit()
+    {
+        OnScrapCollected = null;
+    }
+    private void OnDestroy()
+    {
+        OnScrapCollected = null;
+    }
 }
+

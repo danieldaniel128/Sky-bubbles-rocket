@@ -58,6 +58,7 @@ public class ScrapsSpawner : MonoBehaviour
             randomScrapData = GetRandomScrapByRarity(_allScrapDataSO);
             scrapHandler.SetScrap(randomScrapData, scrapsPosition);
             scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+            scrapHandler.ScrapsCollector = _scrapCollector;
             _allScrapCreated.Add(scrapHandler);
         }
         _generatedScrapsPositions.Clear();
@@ -109,6 +110,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomScrapData = GetRandomScrapByRarity(_rocketBodyDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+        scrapHandler.ScrapsCollector = _scrapCollector;
         _allScrapCreated.Add(scrapHandler);
 
         randomPos = GetRandomPosAndOccupie();
@@ -119,6 +121,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomScrapData = GetRandomScrapByRarity(_rocketHeadDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+        scrapHandler.ScrapsCollector = _scrapCollector;
         _allScrapCreated.Add(scrapHandler);
 
         randomPos = GetRandomPosAndOccupie();
@@ -130,6 +133,7 @@ public class ScrapsSpawner : MonoBehaviour
         randomScrapData = GetRandomScrapByRarity(_rocketThrustersDataSO);
         scrapHandler.SetScrap(randomScrapData, randomPos);
         scrapHandler.OnScrapCollected += _scrapCollector.TryToCollectScrap;
+        scrapHandler.ScrapsCollector = _scrapCollector;
         _allScrapCreated.Add(scrapHandler);
     }
     private Transform GetRandomPosAndOccupie()

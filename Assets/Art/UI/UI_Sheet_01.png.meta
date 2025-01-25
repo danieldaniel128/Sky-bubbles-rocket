@@ -398,10 +398,10 @@ TextureImporter:
       name: UI_Sheet_01_11
       rect:
         serializedVersion: 2
-        x: 2497
-        y: 350
-        width: 148
-        height: 143
+        x: 2477
+        y: 362
+        width: 184
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -464,10 +464,10 @@ TextureImporter:
       name: UI_Sheet_01_14
       rect:
         serializedVersion: 2
-        x: 2457
-        y: 130
-        width: 256
-        height: 221
+        x: 2477
+        y: 135
+        width: 184
+        height: 214
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -486,10 +486,10 @@ TextureImporter:
       name: UI_Sheet_01_15
       rect:
         serializedVersion: 2
-        x: 2448
-        y: 6
-        width: 263
-        height: 122
+        x: 2479
+        y: 50
+        width: 180
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,12 +508,12 @@ TextureImporter:
       name: UI_Sheet_01_16
       rect:
         serializedVersion: 2
-        x: 2245
-        y: 38
-        width: 194
-        height: 91
+        x: 2257
+        y: 52
+        width: 180
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -530,12 +530,12 @@ TextureImporter:
       name: UI_Sheet_01_17
       rect:
         serializedVersion: 2
-        x: 2225
-        y: 130
-        width: 223
-        height: 229
+        x: 2253
+        y: 134
+        width: 186
+        height: 215
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -552,12 +552,12 @@ TextureImporter:
       name: UI_Sheet_01_18
       rect:
         serializedVersion: 2
-        x: 2241
-        y: 359
-        width: 212
-        height: 127
+        x: 2253
+        y: 363
+        width: 186
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

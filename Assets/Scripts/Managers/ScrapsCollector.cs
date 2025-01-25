@@ -1,10 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ScrapsCollector : MonoBehaviour
 {
-    [Header("positions for selected rocket parts to snap to")]
+    [Header("positions for selected rocket parts to snap to, and their images")]
+    [SerializeField] Image _head;
+    [SerializeField] Image _thrusters;
+    [SerializeField] Image _body;
+    [Header("sprites for drag and drop")]
+    [SerializeField] Sprite _dropToHead;
+    [SerializeField] Sprite _dropToThrusters;
+    [SerializeField] Sprite _dropToBody;
+    [SerializeField] Sprite _originalHead;
+    [SerializeField] Sprite _originalThrusters;
+    [SerializeField] Sprite _originalBody;
     [SerializeField] Transform _headPos;
     [SerializeField] Transform _thrustersPos;
     [SerializeField] Transform _bodyPos;
@@ -14,32 +25,135 @@ public class ScrapsCollector : MonoBehaviour
     [SerializeField] ScrapHandler _collectedBody;
     [Header("Finish Building")]
     [SerializeField] GameObject _launchButton;
+    [SerializeField] float snapOffset = 50f;
     public void TryToCollectScrap(ScrapHandler collectedScrap)
     {
+        // Define a snapping offset distance
         switch (collectedScrap.ScrapType)
         {
             case RocketScrapType.Body:
-                //check if the collected is already collected.
-                if (_collectedBody != collectedScrap)
-                    AddToCollected(ref _collectedBody, collectedScrap);
-                else//already got collected, release it.
-                    ReleaseFromCollected(collectedScrap, ref _collectedBody);
+                HandleSnapOrRelease(collectedScrap, ref _collectedBody, _bodyPos.position, snapOffset);
                 break;
+
             case RocketScrapType.Thrusters:
-                if (_collectedThrusters != collectedScrap)
-                    AddToCollected(ref _collectedThrusters, collectedScrap);
-                else
-                    ReleaseFromCollected(collectedScrap, ref _collectedThrusters);
+                HandleSnapOrRelease(collectedScrap, ref _collectedThrusters, _thrustersPos.position, snapOffset);
                 break;
+
             case RocketScrapType.Head:
-                if (_collectedHead != collectedScrap)
-                    AddToCollected(ref _collectedHead, collectedScrap);
-                else
-                    ReleaseFromCollected(collectedScrap, ref _collectedHead);
+                HandleSnapOrRelease(collectedScrap, ref _collectedHead, _headPos.position, snapOffset);
                 break;
+
             default:
-                Debug.Log("<color=red>something went wrong</color>");
+                Debug.Log("<color=red>Something went wrong</color>");
                 break;
+        }
+    }
+    public void StartCollectProcess(ScrapHandler collectedScrap)
+    {
+        // Define a snapping offset distance
+        switch (collectedScrap.ScrapType)
+        {
+            case RocketScrapType.Body:
+                _body.sprite = _dropToBody;
+                _body.SetNativeSize();
+                break;
+
+            case RocketScrapType.Thrusters:
+                _thrusters.sprite = _dropToThrusters;
+                _thrusters.SetNativeSize();
+                break;
+
+            case RocketScrapType.Head:
+                _head.sprite = _dropToHead;
+                _head.SetNativeSize();
+                break;
+
+            default:
+                Debug.Log("<color=red>Something went wrong</color>");
+                break;
+        }
+    }
+    public void EndCollectProcess(ScrapHandler collectedScrap)
+    {
+        // Define a snapping offset distance
+        switch (collectedScrap.ScrapType)
+        {
+            case RocketScrapType.Body:
+                if (_collectedBody == null)
+                {
+                    _body.sprite = _originalBody;
+                    _body.SetNativeSize();
+                }
+                else
+                {
+                    _body.sprite = _dropToBody;
+                    _body.SetNativeSize();
+                }
+                break;
+
+            case RocketScrapType.Thrusters:
+                if (_collectedBody == null)
+                { 
+                    _thrusters.sprite = _originalThrusters;
+                    _thrusters.SetNativeSize();
+                }
+                else
+                {
+                    _thrusters.sprite = _dropToThrusters;
+                    _thrusters.SetNativeSize();
+                }
+                break;
+
+            case RocketScrapType.Head:
+                if (_collectedBody == null)
+                {
+                    _head.sprite = _originalHead;
+                    _head.SetNativeSize();
+                }
+                else
+                {
+                    _head.sprite = _dropToHead;
+                    _head.SetNativeSize();
+                }
+                break;
+
+            default:
+                Debug.Log("<color=red>Something went wrong</color>");
+                break;
+        }
+    }
+    private void HandleSnapOrRelease(ScrapHandler collectedScrap, ref ScrapHandler collectedSlot, Vector3 targetPos, float snapOffset)
+    {
+        // Calculate the distance between the collected scrap and the target position
+        float distance = Vector2.Distance(
+            new Vector2(collectedScrap.transform.position.x, collectedScrap.transform.position.y),
+            new Vector2(targetPos.x, targetPos.y)
+        );
+        Debug.Log($"<color=green>distanced ended drop: {distance}</color>");
+        if (distance <= snapOffset)
+        {
+            // Snap to target position
+            collectedScrap.transform.position = targetPos;
+
+            // Assign the collected scrap to the corresponding slot
+            if (collectedSlot != collectedScrap)
+            {
+                AddToCollected(ref collectedSlot, collectedScrap);
+                //close drag and drop image.
+                collectedScrap.transform.parent.GetComponent<Image>().enabled = false;
+                EndCollectProcess(collectedScrap);
+            }
+
+            Debug.Log($"<color=green>{collectedScrap.name} snapped to {targetPos}</color>");
+        }
+        else
+        {
+            //before releasing return the parent image
+            collectedScrap.transform.parent.GetComponent<Image>().enabled = true;
+            // Release the scrap
+            ReleaseFromCollected(collectedScrap, ref collectedSlot);
+            EndCollectProcess(collectedScrap);
+            Debug.Log($"<color=yellow>{collectedScrap.name} released from {targetPos}</color>");
         }
     }
     private void AddToCollected(ref ScrapHandler collectedScrap,ScrapHandler tryingToCollectScrap) 
@@ -52,7 +166,7 @@ public class ScrapsCollector : MonoBehaviour
     }
     private void ReleaseFromCollected(ScrapHandler releasedCollectedScrap, ref ScrapHandler collectedScrap)
     {
-        releasedCollectedScrap.transform.position = releasedCollectedScrap.ScrapCreatedPosParent.position;
+        releasedCollectedScrap.transform.position = releasedCollectedScrap.ScrapCreatedPosParent.position - Vector3.forward * 10;
         releasedCollectedScrap.transform.SetParent(releasedCollectedScrap.ScrapCreatedPosParent);
         collectedScrap = null;
         _launchButton.SetActive(false);
@@ -68,21 +182,21 @@ public class ScrapsCollector : MonoBehaviour
             _collectedHead.transform.position = _headPos.position + Offset;
 
             //set new parent.
-            _collectedHead.transform.SetParent(_headPos);
+            _collectedHead.transform.SetParent(_head.transform);
         }
         if (_collectedThrusters != null)
         {
             //set to part position
             _collectedThrusters.transform.position = _thrustersPos.position + Offset;
             //set new parent.
-            _collectedThrusters.transform.SetParent(_thrustersPos);
+            _collectedThrusters.transform.SetParent(_thrusters.transform);
         }
         if (_collectedBody != null)
         { 
             //set to part position
             _collectedBody.transform.position = _bodyPos.position + Offset;
             //set new parent.
-            _collectedBody.transform.SetParent(_bodyPos);
+            _collectedBody.transform.SetParent(_body.transform);
         }
         if (_collectedBody != null && _collectedThrusters != null && _collectedHead != null)
         { 
