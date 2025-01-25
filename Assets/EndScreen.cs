@@ -31,9 +31,9 @@ public class EndScreen : MonoBehaviour
     private void DisplayResult()
     {
         
-        Meterts.text = "Meters: " + GameManager.instance.metersPassed;
-        Coins.text = "Coins: " + GameManager.instance.GetCoinsCollected().ToString();
-        Bubbles.text = "Bubbles: " + GameManager.instance.GetBubblesPopped();
+        Meterts.text = "Meters passed...................  " + GameManager.instance.metersPassed;
+        Coins.text = "Coins Collected...................  " + GameManager.instance.GetCoinsCollected().ToString();
+        Bubbles.text = "Bubbles Popped..................  " + GameManager.instance.GetBubblesPopped();
 
     }
 }

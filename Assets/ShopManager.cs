@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI fuelCostText;
     [SerializeField] TextMeshProUGUI coinCostText;
     [SerializeField] TextMeshProUGUI rarityCostText;
+    [SerializeField] TextMeshProUGUI coins;
     int numberOfFuelPurchese = 0;
     private float fuelCost = 20;
     private float coinCost = 20;
@@ -26,6 +27,7 @@ public class ShopManager : MonoBehaviour
         fuelButton.onClick.AddListener(() => FuelIncreaseButton());
         coinButton.onClick.AddListener(() => CoinIncreaseButton());
         RarityButton.onClick.AddListener(() => IncreaseRarity());
+
     }
     void IncreaseRarity()
     {
@@ -36,6 +38,7 @@ public class ShopManager : MonoBehaviour
             rarityCost *= CostIncrease;
             rarityCost = Mathf.Round(rarityCost);
             rarityCostText.text = rarityCost.ToString();
+            UpdateCoin();
         }
         else
         {
@@ -50,7 +53,8 @@ public class ShopManager : MonoBehaviour
             bubbleSpawner.SetSpawnInterval();
             fuelCost *= CostIncrease;
             fuelCost = Mathf.Round(fuelCost);
-            
+            UpdateCoin();
+
             fuelCostText.text = fuelCost.ToString();
         }
         else
@@ -68,6 +72,8 @@ public class ShopManager : MonoBehaviour
             coinCost *= CostIncrease;
             coinCost = Mathf.Round(coinCost);
             coinCostText.text = coinCost.ToString();
+            UpdateCoin();
+
         }
         else
         {
@@ -78,5 +84,13 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         
+    }
+    void UpdateCoin()
+    {
+        coins.text = GameManager.instance.CoinManager.Coins.ToString();
+    }
+    private void OnEnable()
+    {
+        coins.text =  GameManager.instance.CoinManager.Coins.ToString();
     }
 }
