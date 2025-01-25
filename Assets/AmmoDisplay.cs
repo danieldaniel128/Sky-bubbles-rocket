@@ -11,14 +11,14 @@ public class AmmoDisplay : MonoBehaviour
         if (weapon == null || ammoImages == null || ammoImages.Length == 0) return;
 
         // Loop through each ammo slot
-        for (int i = 0; i < weapon.MaxAmmoCapacity; i++)
+        for (int i = 0; i < weapon.MaxAmmocapacity; i++)
         {
-            if (i < weapon.AmmoCapacity)
+            if (i < weapon.Ammocapacity)
             {
                 // Fully filled ammo slots
                 ammoImages[i].fillAmount = 1f;
             }
-            else if (i == weapon.AmmoCapacity)
+            else if (i == weapon.Ammocapacity)
             {
                 // Partially filled ammo slot (current regenerating)
                 float progress = Mathf.Clamp01(weapon.GetRegenTimer() / weapon.GetRegenTime());
