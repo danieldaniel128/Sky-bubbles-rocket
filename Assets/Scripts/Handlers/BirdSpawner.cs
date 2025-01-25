@@ -70,7 +70,7 @@ public class BirdSpawner : MonoBehaviour
 
         // Instantiate the obstacle
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
-        GameObject obstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+        GameObject obstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity, transform);
 
         // Add the obstacle to the active list
         GameManager.instance.activeBird.Add(obstacle);

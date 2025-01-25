@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject InGaqmeobjects;
     [SerializeField] BackgroundScroller BackgroundScroller;
     [SerializeField] ScrapsSpawner ScrapsSpawner;
+    int bubblesPopped = 0;
+    int coinsCollected = 0;
+    [SerializeField] FiilUIScript FiilUIScript;
+    [SerializeField]GameObject endPopup;
     private void Awake()
     {
         if (instance == null)
@@ -27,7 +31,9 @@ public class GameManager : MonoBehaviour
     
     public void LoseGame()
     {
+        Time.timeScale = 0;
         InGaqmeobjects.SetActive(false);
+        endPopup.gameObject.SetActive(true);
         BackgroundScroller.DeactivateScrol();
         isGameOver = true;
         foreach (var entity in activeEntity)
@@ -49,7 +55,9 @@ public class GameManager : MonoBehaviour
     {
         InGaqmeobjects.SetActive(true);
         isGameOver = false;
-        
+        bubblesPopped = 0;
+        coinsCollected = 0;
+
     }
     public void AddCoins(int amount)
     {
@@ -59,4 +67,26 @@ public class GameManager : MonoBehaviour
     {
         CoinManager.RemoveCoins(amount);
     }
+    public float GetFinalScore()
+    {
+       return FiilUIScript.getScore();
+    }
+    public void AddBubblesPopped()
+    {
+        bubblesPopped++;
+    }   
+    public int GetBubblesPopped()
+    {
+        return bubblesPopped;
+    }
+    public void AddCoinsCollected()
+    {
+        coinsCollected++;
+    }
+    public int GetCoinsCollected()
+    {
+        return coinsCollected;
+    }
+
+
 }

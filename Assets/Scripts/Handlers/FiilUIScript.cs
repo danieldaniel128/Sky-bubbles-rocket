@@ -62,4 +62,8 @@ public class FiilUIScript : MonoBehaviour
         }
         CalculateFill();
     }
+    public float getScore()
+    {
+        return score;
+    }
 }
