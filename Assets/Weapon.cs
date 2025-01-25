@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Weapon : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] int bulletDamage = 10;
     [SerializeField] int MaxAmmoCapacity = 3;
     [SerializeField] int AmmoCapacity = 3;
+    [SerializeField] List<AudioClip> audioClips = new List<AudioClip>();
     public int MaxAmmocapacity => MaxAmmoCapacity; // Getter for Max Ammo Capacity
     public int Ammocapacity => AmmoCapacity;       // Getter for Current Ammo Capacity
 
@@ -39,6 +41,8 @@ public class Weapon : MonoBehaviour
     }
     private void Shoot()
     {
+        AudioClip sfx = audioClips[Random.Range(0, audioClips.Count)];
+        SoundManager.Instance.PlaySFX(sfx, 2f);
         if (AmmoCapacity > 0)
         {
             // Instantiate the bullet

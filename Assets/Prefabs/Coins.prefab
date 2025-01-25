@@ -169,3 +169,4 @@ MonoBehaviour:
   downwardForce: 1
   minSpeed: 2
   maxSpeed: 8
+  coinPickup: {fileID: 8300000, guid: 416a6ad79a03d84448916249a67a34e2, type: 3}

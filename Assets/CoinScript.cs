@@ -7,6 +7,7 @@ public class CoinScript : MonoBehaviour
     [SerializeField] float downwardForce = 1f;
     [SerializeField] int minSpeed;
     [SerializeField] int maxSpeed;
+    [SerializeField] AudioClip coinPickup;
     private Camera mainCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,6 +46,7 @@ public class CoinScript : MonoBehaviour
                 {
                     GameManager.instance.AddCoins(1);
                    GameManager.instance.AddCoinsCollected();
+                    SoundManager.Instance.PlaySFX(coinPickup, 0.7f);
                     Destroy(gameObject);
 
                 }

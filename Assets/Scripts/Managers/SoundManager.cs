@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private List<AudioSource> sfxSources= new List<AudioSource>();
     [SerializeField] private AudioSource bgmSource;
 
+    [SerializeField] private AudioClip Launch;
+
     [Header("Volume Settings")]
     [Range(0f, 1f)] public float sfxVolume = 1f;
     [Range(0f, 1f)] public float bgmVolume = 1f;
@@ -31,7 +33,7 @@ public class SoundManager : MonoBehaviour
     /// Plays a sound effect.
     /// </summary>
     /// <param name="clip">AudioClip to play.</param>
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip,float vol )
     {
         if (clip == null) return;
         AudioSource source = null;
@@ -43,7 +45,7 @@ public class SoundManager : MonoBehaviour
                 break;
             }
         }
-        source.volume = sfxVolume;
+        source.volume = vol;
         source.PlayOneShot(clip);
 
     }
@@ -70,7 +72,10 @@ public class SoundManager : MonoBehaviour
     {
         bgmSource.Stop();
     }
-
+    public void PlayRocket()
+    {
+        PlaySFX(Launch, 0.7f);
+    }
     /// <summary>
     /// Adjusts the SFX volume.
     /// </summary>

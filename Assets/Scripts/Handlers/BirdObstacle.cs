@@ -58,7 +58,7 @@ public class BirdObstacle : MonoBehaviour
             if (playableClip!= null && !hasSoundPlayed)
             {
                 hasSoundPlayed = true;
-                SoundManager.Instance.PlaySFX(playableClip);
+                SoundManager.Instance.PlaySFX(playableClip, 0.6f);
             }
             // Move the obstacle in the set direction
             transform.position += (Vector3)direction * speed * Time.deltaTime;

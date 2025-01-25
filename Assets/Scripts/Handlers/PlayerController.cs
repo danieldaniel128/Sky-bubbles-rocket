@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer body;
     [SerializeField] SpriteRenderer legs;
 
+    [SerializeField] List<AudioClip> hitSound = new List<AudioClip>();
+    [SerializeField] AudioClip DeathSound;
     [SerializeField] GameObject particleEffect;
     public FlashEffect flashEffect;
     [SerializeField] Rigidbody2D rb;
@@ -73,13 +76,15 @@ public class PlayerController : MonoBehaviour
            hasBeenHit = true;
             lives--;
             StartCoroutine(RestDamageBool());
+            AudioClip clip = hitSound[UnityEngine.Random.Range(0, hitSound.Count)];
+            SoundManager.Instance.PlaySFX(clip, 0.7f);
             onHit.Invoke();
             
         }
         if (lives <= 0)
         {
             //gameOver
-            
+            SoundManager.Instance.PlaySFX(DeathSound, 0.7f);
             GameManager.instance.LoseGame();
         }
         

@@ -16,6 +16,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI coinCostText;
     [SerializeField] TextMeshProUGUI rarityCostText;
     [SerializeField] TextMeshProUGUI coins;
+
+    [SerializeField] AudioClip BuySFX;
+    [SerializeField] AudioClip OpenSFX;
     int numberOfFuelPurchese = 0;
     private float fuelCost = 20;
     private float coinCost = 20;
@@ -84,6 +87,14 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void PlayBuySFX()
+    {
+        SoundManager.Instance.PlaySFX(BuySFX, 0.7f);
+    }
+    public void PlayOpenSFX()
+    {
+        SoundManager.Instance.PlaySFX(OpenSFX, 0.7f);
     }
     void UpdateCoin()
     {

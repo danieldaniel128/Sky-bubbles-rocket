@@ -19,7 +19,7 @@ public class ObstacleScript : MonoBehaviour
         spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
         AudioClip sfx = audios[Random.Range(0, audios.Count)];
         
-        SoundManager.Instance.PlaySFX(sfx);
+        SoundManager.Instance.PlaySFX(sfx, 0.175f);
 
     }
     private void Update()

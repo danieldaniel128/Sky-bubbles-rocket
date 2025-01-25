@@ -22,7 +22,7 @@ public class PlayerClamp : MonoBehaviour
     }
     private void OnDisable()
     {
-        //SoundManager.Instance.StopBGM();
+        SoundManager.Instance.StopBGM();
     }
     private void ClampPlayerPosition()
     {

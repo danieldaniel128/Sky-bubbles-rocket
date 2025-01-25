@@ -44,7 +44,7 @@ public class Bubble : MonoBehaviour
                 {
                    player.ReFuel(10);
                     GameManager.instance.AddBubblesPopped();
-                    SoundManager.Instance.PlaySFX(popSound);    
+                    SoundManager.Instance.PlaySFX(popSound, 1f);    
                     Destroy(gameObject);
 
                 }
