@@ -38,6 +38,7 @@ public class ShopManager : MonoBehaviour
             rarityCost *= CostIncrease;
             rarityCost = Mathf.Round(rarityCost);
             rarityCostText.text = rarityCost.ToString();
+            UpdateCoin();
         }
         else
         {
@@ -52,7 +53,8 @@ public class ShopManager : MonoBehaviour
             bubbleSpawner.SetSpawnInterval();
             fuelCost *= CostIncrease;
             fuelCost = Mathf.Round(fuelCost);
-            
+            UpdateCoin();
+
             fuelCostText.text = fuelCost.ToString();
         }
         else
@@ -70,6 +72,8 @@ public class ShopManager : MonoBehaviour
             coinCost *= CostIncrease;
             coinCost = Mathf.Round(coinCost);
             coinCostText.text = coinCost.ToString();
+            UpdateCoin();
+
         }
         else
         {
@@ -81,7 +85,7 @@ public class ShopManager : MonoBehaviour
     {
         
     }
-   public void UpdateCoin()
+    void UpdateCoin()
     {
         coins.text = GameManager.instance.CoinManager.Coins.ToString();
     }
