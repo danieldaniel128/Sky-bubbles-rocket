@@ -7473,6 +7473,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2793929982925791531, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3191747069971260242, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -762
@@ -7489,6 +7493,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1048267853, guid: 8406f03d64a36cd4cbc084c6f1b9ced6, type: 3}
+    - target: {fileID: 5556416181526694588, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556416181526694588, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3640655872
+      objectReference: {fileID: 0}
     - target: {fileID: 6027715933007351861, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: coinSpawner
       value: 
@@ -7540,6 +7552,14 @@ PrefabInstance:
     - target: {fileID: 6860151655488792537, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906307107816988959, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131508335395002229, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_Color.a
+      value: 0.3529412
       objectReference: {fileID: 0}
     - target: {fileID: 8731573246931580549, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_Pivot.x
