@@ -22,10 +22,11 @@ public class BirdObstacle : MonoBehaviour
         if (fromLeft)
         {
             direction = Quaternion.Euler(0, 0, angle) * Vector2.right; // Launch to the right
+            spriteRenderer.flipX = true;
         }
         else
         {
-           spriteRenderer.flipX = true;
+           
             direction = Quaternion.Euler(0, 0, angle) * Vector2.left; // Launch to the left
         }
 

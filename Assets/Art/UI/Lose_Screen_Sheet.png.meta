@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 730ee55bf40b6d144990a992620b10ee
+guid: 6682384bc6bee1e49bc96b3131d6f1f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4611775535443943888
-    second: Projectile_SHeet_0
+      213: 2399535949266879291
+    second: Lose_Screen_Sheet_0
   - first:
-      213: -4052770852552932299
-    second: Projectile_SHeet_1
+      213: 4794203453908253455
+    second: Lose_Screen_Sheet_1
+  - first:
+      213: -4439244507021618205
+    second: Lose_Screen_Sheet_2
+  - first:
+      213: 564367925587554341
+    second: Lose_Screen_Sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Projectile_SHeet_0
+      name: Lose_Screen_Sheet_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 16
-        width: 97
-        height: 97
+        x: 46
+        y: 33
+        width: 1297
+        height: 947
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03ed602b59eafffb0800000000000000
-      internalID: -4611775535443943888
+      spriteID: b3305d98b3ddc4120800000000000000
+      internalID: 2399535949266879291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Projectile_SHeet_1
+      name: Lose_Screen_Sheet_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 27
-        width: 50
-        height: 73
+        x: 1413
+        y: 33
+        width: 1297
+        height: 947
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +172,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5348681d16aa1c7c0800000000000000
-      internalID: -4052770852552932299
+      spriteID: f0bf62bf3ae688240800000000000000
+      internalID: 4794203453908253455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lose_Screen_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 347
+        width: 330
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e35fd714a2a462c0800000000000000
+      internalID: -4439244507021618205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lose_Screen_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 155
+        width: 330
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520354f53a905d700800000000000000
+      internalID: 564367925587554341
       vertices: []
       indices: 
       edges: []
@@ -185,9 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Projectile_SHeet_0: -4611775535443943888
-      Projectile_SHeet_1: -4052770852552932299
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

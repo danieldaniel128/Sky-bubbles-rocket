@@ -32,10 +32,11 @@ public class GameManager : MonoBehaviour
     public void LoseGame()
     {
         Time.timeScale = 0;
+        isGameOver = true;
         InGaqmeobjects.SetActive(false);
         endPopup.gameObject.SetActive(true);
         BackgroundScroller.DeactivateScrol();
-        isGameOver = true;
+       
         foreach (var entity in activeEntity)
         {
             Destroy(entity.gameObject);
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
 
         activeEntity.Clear();
         activeBird.Clear();
+       FiilUIScript.RestMeters();
         //flashEffect.StopFlash();
 
         ScrapsSpawner.InitScrapsCoro();
