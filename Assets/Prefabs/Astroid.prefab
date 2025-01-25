@@ -166,6 +166,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2347723762463466329}
+  sprites:
+  - {fileID: 1628687110228996736, guid: 81b788e7df22f5244b0ce796684aef2e, type: 3}
+  - {fileID: -7978173071996504567, guid: fd833419670fd564289ab9ed6da989a2, type: 3}
+  spriteRenderer: {fileID: 9046023308973352284}
+  audios:
+  - {fileID: 8300000, guid: 198c96ddde6c79d4e9dcd89346af0054, type: 3}
+  - {fileID: 8300000, guid: 1f6e8f61c74aa654c9616e874b1204a3, type: 3}
+  - {fileID: 8300000, guid: 894ac72c7bf3ed84db985de6ba682543, type: 3}
   downwardForce: 1
   minSpeed: 2
   maxSpeed: 5

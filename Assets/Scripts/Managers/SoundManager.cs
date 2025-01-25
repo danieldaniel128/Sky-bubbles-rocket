@@ -89,4 +89,9 @@ public class SoundManager : MonoBehaviour
         bgmVolume = Mathf.Clamp01(volume);
         bgmSource.volume = bgmVolume;
     }
+
+    private void Update()
+    {
+        SetBGMVolume(bgmVolume);
+    }
 }

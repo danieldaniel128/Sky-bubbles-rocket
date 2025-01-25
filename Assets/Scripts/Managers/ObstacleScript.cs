@@ -1,8 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ObstacleScript : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] List<Sprite> sprites = new List<Sprite>();
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] List<AudioClip>  audios= new List<AudioClip>();
     [SerializeField] float downwardForce = 1f;
     [SerializeField] int minSpeed;
     [SerializeField] int maxSpeed;
@@ -12,7 +16,10 @@ public class ObstacleScript : MonoBehaviour
     {
         downwardForce = Random.Range(minSpeed, maxSpeed + 1);
         mainCamera = Camera.main; // Reference to the main camera
-                                  //downwardForce *= 20;
+        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Count)];
+        AudioClip sfx = audios[Random.Range(0, audios.Count)];
+        
+        SoundManager.Instance.PlaySFX(sfx);
 
     }
     private void Update()

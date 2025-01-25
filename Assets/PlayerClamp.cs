@@ -5,12 +5,25 @@ public class PlayerClamp : MonoBehaviour
     public Camera mainCamera; // Assign the main camera
     public float xBuffer = 0.5f; // Optional buffer for X axis
     public float yBuffer = 0.5f; // Optional buffer for Y axis
+    [SerializeField] private AudioClip audioSource;
 
+    private void OnEnable()
+    {
+        SoundManager.Instance.PlayBGM(audioSource);
+    }
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM(audioSource);
+    }
     void Update()
     {
         ClampPlayerPosition();
+       
     }
-
+    private void OnDisable()
+    {
+        //SoundManager.Instance.StopBGM();
+    }
     private void ClampPlayerPosition()
     {
         if (mainCamera == null)

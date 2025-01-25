@@ -21,6 +21,10 @@ public class ObstacleSpawner : MonoBehaviour
         // Get reference to the main camera
         mainCamera = Camera.main;
     }
+    private void OnEnable()
+    {
+        spawnInterval = 1f;
+    }
 
     void Update()
     {

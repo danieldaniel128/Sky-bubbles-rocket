@@ -37,6 +37,7 @@ public class ScrapsSpawner : MonoBehaviour
     {
         InitScraps();
     }
+
     private void InitScraps()
     {
         //clean it from last session.

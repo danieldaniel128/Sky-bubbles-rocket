@@ -169,4 +169,4 @@ MonoBehaviour:
   downwardForce: 1
   minSpeed: 2
   maxSpeed: 5
-  popSound: {fileID: 8300000, guid: 7ab88b9b9817d2f47993b54e7e3a0eb7, type: 3}
+  popSound: {fileID: 8300000, guid: 874c7a072e2a7b04c94be1f6b6d2dafe, type: 3}
