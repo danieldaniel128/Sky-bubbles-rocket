@@ -90,7 +90,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scrapImage: {fileID: 6827727687670574443}
   _crupDataSO: {fileID: 0}
+  DropClip: {fileID: 8300000, guid: 133dacc63fdfc004d9d49d50bda7b573, type: 3}
+  GrabClip: {fileID: 8300000, guid: b1225bfc80e4ca14c9d2bfe879cd7c59, type: 3}
   CommonMaterial: {fileID: 2100000, guid: 46dea9ca8bfd77347839d2abf3278e23, type: 2}
   RareMaterial: {fileID: 2100000, guid: 381b1d47ea4bb1c40a45ba8a9a090eec, type: 2}
   EpicMaterial: {fileID: 2100000, guid: 92339f14755ae5240ab5b766a839c08d, type: 2}
   LegendaryMaterial: {fileID: 2100000, guid: 70aed6a7125e92c4f965e294ff964a68, type: 2}
+  _rectTransform: {fileID: 0}
+  canvas: {fileID: 0}
+  ScrapsCollector: {fileID: 0}

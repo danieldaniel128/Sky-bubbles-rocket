@@ -8,7 +8,8 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Image _scrapImage;
     [SerializeField] ScrapDataSO _crupDataSO;
 
-
+    [SerializeField] AudioClip DropClip;
+    [SerializeField] AudioClip GrabClip;
     [SerializeField] private Material CommonMaterial;
     [SerializeField] private Material RareMaterial;
     [SerializeField] private Material EpicMaterial;
@@ -65,6 +66,7 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragged = true;
+        SoundManager.Instance.PlaySFX(GrabClip);
         this.ScrapsCollector.StartCollectProcess(this);
         // Calculate the offset between the mouse pointer and the object's position
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -98,6 +100,7 @@ public class ScrapHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             OnScrapCollected?.Invoke(this);
             isDragged = false;
             Debug.Log($"<color=blue>eneded drop {gameObject.name}</color>");
+            SoundManager.Instance.PlaySFX(DropClip);
         }
     }
     public void OnPointerEnter(PointerEventData eventData)
