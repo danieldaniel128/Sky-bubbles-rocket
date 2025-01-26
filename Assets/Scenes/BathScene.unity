@@ -7689,6 +7689,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5970861557595766805, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6027715933007351861, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: BuySFX
       value: 
@@ -7780,6 +7784,10 @@ PrefabInstance:
     - target: {fileID: 7369504466279356613, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623983460340682442, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8657611110563121943, guid: 1e14949eed6f3974a9a63da782d7d105, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
