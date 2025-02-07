@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ZazaQuack_0: -6719666557670293058
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RiaQuack_0: -7435163534396775309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

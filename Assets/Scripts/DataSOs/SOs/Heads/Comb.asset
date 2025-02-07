@@ -16,4 +16,4 @@ MonoBehaviour:
   ScrapIcon: {fileID: 5699450557912355524, guid: 549d2dd7684a6e7448162dbd23d339b7, type: 3}
   ScrapType: 2
   Rarity: 0
-  Lives: 2
+  Lives: 3

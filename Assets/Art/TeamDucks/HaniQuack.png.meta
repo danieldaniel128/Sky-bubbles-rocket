@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HaniQuack_0: 2087151229506350384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

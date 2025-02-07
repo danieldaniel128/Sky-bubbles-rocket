@@ -3999,7 +3999,7 @@ MonoBehaviour:
   HorizontalSpeed: 5
   VerticalSpeed: 8
   decelerationFactor: 0.95
-  lives: 0
+  lives: 1
   cameraShake: {fileID: 0}
   InvincibilityTime: 1
 --- !u!4 &1058585916
